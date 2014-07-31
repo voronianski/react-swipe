@@ -17,7 +17,11 @@ Usage
 var React = require("react")
 var Swipe = require("react-swipe")
 
-var carousel = Swipe(null,
+var swipeOptions = {
+  continuous: false
+}
+
+var carousel = Swipe(swipeOptions, // and/or usual DOM props
   React.DOM.div(null, "PANE 1"),
   React.DOM.div(null, "PANE 2"),
   React.DOM.div(null, "PANE 3")
