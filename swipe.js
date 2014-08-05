@@ -1,4 +1,4 @@
-var React = require("react")
+var React = require("react/addons")
 var Swipe = require("./vendor/swipe")
 
 var styles = {
