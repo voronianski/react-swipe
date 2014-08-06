@@ -21,7 +21,7 @@
     "literalify": "^0.3.0"
   },
   "literalify": {
-    "react": "window.React"
+    "react/addons": "window.React"
   },
   "scripts": {
     "build": "browserify swipe.js -t literalify -s Swipe -o demo/index.js"
