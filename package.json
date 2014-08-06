@@ -25,5 +25,8 @@
   },
   "scripts": {
     "build": "browserify swipe.js -t literalify -s Swipe -o demo/index.js"
+  },
+  "dependencies": {
+    "react": "^0.11.1"
   }
 }
