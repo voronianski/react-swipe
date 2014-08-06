@@ -37,9 +37,7 @@ module.exports = React.createClass({
   },
 
   componentDidMount: function() {
-    console.log("setup")
     this.swipe = Swipe(this.getDOMNode(), this.props)
-    console.log(this.swipe)
   },
 
   componentWillUnmount: function() {
