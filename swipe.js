@@ -45,6 +45,12 @@ module.exports = React.createClass({
     delete this.swipe
   },
 
+  reinit: function() {
+    this.swipe.kill()
+    delete this.swipe
+    this.swipe = Swipe(this.getDOMNode(), this.props)
+  },
+
   render: function() {
     var container = React.DOM.div(this.props,
       React.DOM.div({style: styles.wrapper},
