@@ -46,14 +46,14 @@ module.exports = React.createClass({
   },
 
   render: function() {
-    var container = React.DOM.div(this.props,
-      React.DOM.div({style: styles.wrapper},
-        React.Children.map(this.props.children, function(child) {
-          return React.addons.cloneWithProps(child, {style: styles.child})
-        })
-      )
-    )
-
-    return React.addons.cloneWithProps(container, {style: styles.container})
+    return <div {...this.props} style={styles.container}>
+      <div style={styles.wrapper}>
+        {this.props.children.map(function(child) {
+          return React.addons.cloneWithProps(
+            child, {key: child.key, style: styles.child})
+        })}
+      </div>
+    </div>
   }
+
 })
