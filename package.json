@@ -23,7 +23,7 @@
   },
   "scripts": {
     "build": "uglifyjs react-swipe.js -cm -o react-swipe.min.js",
-    "build-dev": "browserify ./demo/index.js -o ./demo/bundle.js"
+    "build-dev": "browserify ./demo/index.js | uglifyjs -cm > ./demo/bundle.min.js"
   },
   "dependencies": {
     "react": ">=0.12.0",

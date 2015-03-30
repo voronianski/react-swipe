@@ -14,6 +14,7 @@ var Page = React.createClass({
       return (
         React.createElement('div', null,
           React.createElement('h1', null, 'ReactSwipe'),
+          React.createElement('h2', null, 'Open this page from a mobile device (real or emulated).'),
           React.createElement(ReactSwipe, {
             id: 'mySwipe'
           }, Panes)
