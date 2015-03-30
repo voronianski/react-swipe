@@ -1,6 +1,6 @@
 # react-swipe
 
-[Brad Birdsall](https://github.com/thebird)'s [swipe.js](http://swipejs.com), as a [React](http://facebook.github.io/react) component.
+[Brad Birdsall](https://github.com/thebird)'s [Swipe.js](http://swipejs.com), as a [React](http://facebook.github.io/react) component.
 
 Check out the [demo](https://jed.github.io/react-swipe/demo) from a mobile device (real or emulated).
 

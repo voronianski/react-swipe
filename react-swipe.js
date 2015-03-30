@@ -1,8 +1,15 @@
 (function (root, factory) {
   if (typeof module !== 'undefined' && module.exports) {
-    module.exports = factory(require('react/addons'), require('swipe-js-iso'));
+    module.exports = factory(
+      require('react/addons'),
+      require('swipe-js-iso'),
+      require('object-assign')
+    );
   } else {
-    root.ReactSwipe = factory(root.React, root.Swipe);
+    root.ReactSwipe = factory(
+      root.React,
+      root.Swipe
+    );
   }
 })(this, function (React, Swipe) {
   var styles = {
@@ -60,14 +67,14 @@
     },
 
     render: function() {
-      var container = React.DOM.div(this.props,
-        React.DOM.div({style: styles.wrapper},
-          React.Children.map(this.props.children, function(child) {
+      var container = React.createElement('div', Object.assign({}, this.props, {style: styles.container}),
+        React.createElement('div', {style: styles.wrapper},
+          React.Children.map(this.props.children, function (child) {
             return React.addons.cloneWithProps(child, {style: styles.child});
           })
         )
       );
-      return React.addons.cloneWithProps(container, {style: styles.container});
+      return container;
     }
   });
 
