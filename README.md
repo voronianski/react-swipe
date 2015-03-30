@@ -35,9 +35,9 @@ React.render(<Carousel />, document.body)
 
 ## Props
 
-Properties use all options from [Swipe.js config](https://github.com/thebird/Swipe#config-options) and one additional:
+Properties are duplicates of options from [Swipe.js config](https://github.com/thebird/Swipe#config-options) but there is additional one:
 
-- **slideToIndex** Integer - index position to set by Swipe's `.slide()` method on `componentDidUpdate` lifecycle method. It's useful when you need to control `ReactSwipe` out of component
+- **slideToIndex** Integer - set index position by Swipe's `.slide()` method on `componentDidUpdate` lifecycle method. It's useful when you need to control `ReactSwipe` by custom next/prev buttons - just update component with new index (it wont be updated if index number is the same as previous one).
 
 ---
 
