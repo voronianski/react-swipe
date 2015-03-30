@@ -2,8 +2,7 @@
   if (typeof module !== 'undefined' && module.exports) {
     module.exports = factory(
       require('react/addons'),
-      require('swipe-js-iso'),
-      require('object-assign')
+      require('swipe-js-iso')
     );
   } else {
     root.ReactSwipe = factory(
@@ -67,14 +66,13 @@
     },
 
     render: function() {
-      var container = React.createElement('div', Object.assign({}, this.props, {style: styles.container}),
+      return React.createElement('div', React.__spread({}, this.props, {style: styles.container}),
         React.createElement('div', {style: styles.wrapper},
           React.Children.map(this.props.children, function (child) {
             return React.addons.cloneWithProps(child, {style: styles.child});
           })
         )
       );
-      return container;
     }
   });
 
