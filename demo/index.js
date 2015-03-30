@@ -10,17 +10,30 @@ var Panes = Array.apply(null, Array(20)).map(function (_, i) {
 });
 
 var Page = React.createClass({
-    render: function () {
-      return (
-        React.createElement('div', null,
-          React.createElement('h1', null, 'ReactSwipe'),
-          React.createElement('h2', null, 'Open this page from a mobile device (real or emulated).'),
-          React.createElement(ReactSwipe, {
-            id: 'mySwipe'
-          }, Panes)
+  next: function () {
+    this.refs.ReactSwipe.swipe.next();
+  },
+
+  prev: function () {
+    this.refs.ReactSwipe.swipe.prev();
+  },
+
+  render: function () {
+    return (
+      React.createElement('div', null,
+        React.createElement('h1', null, 'ReactSwipe'),
+        React.createElement('h2', null, 'Open this page from a mobile device (real or emulated).'),
+        React.createElement(ReactSwipe, {
+          ref: 'ReactSwipe',
+          id: 'mySwipe'
+        }, Panes),
+        React.createElement('div', {style: {textAlign: 'center'}},
+          React.createElement('button', {onClick: this.prev}, 'Prev'),
+          React.createElement('button', {onClick: this.next}, 'Next')
         )
-      );
-    }
+      )
+    );
+  }
 });
 
 React.render(
