@@ -7,7 +7,8 @@
     "react",
     "component",
     "carousel",
-    "swipe"
+    "swipe",
+    "react-component"
   ],
   "author": "Jed Schmidt <where@jed.is>",
   "repository": {
@@ -27,7 +28,8 @@
     "build": "browserify swipe.js -t literalify -s Swipe -o demo/index.js"
   },
   "dependencies": {
-    "react": ">=0.10.0"
+    "react": ">=0.10.0",
+    "swipe-js": "^2.1.0"
   },
   "peerDependencies": {
     "react": ">=0.10.0"
