@@ -1,28 +1,16 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>Swipe 2</title>
+    <title>ReactSwipe</title>
     <meta http-equiv="X-UA-Compatible" content="IE=8">
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'/>
     <link href='index.css' rel='stylesheet'/>
-    <script src='//fb.me/react-with-addons-0.11.0.js'></script>
-    <script src='index.js'></script>
   </head>
   <body>
-    <script>
-      var panes = Array.apply(null, Array(20)).map(function(_, i) {
-        return React.DOM.div({key: i}, React.DOM.b(null, i))
-      })
+    <div>Open this page from a mobile device (real or emulated).</div>
 
-      var carousel = Swipe({id: "mySwipe"}, panes)
+    <div id="app"></div>
 
-      var page = React.DOM.div(null,
-        React.DOM.h1(null, "Swipe 2"),
-
-        carousel
-      )
-
-      React.renderComponent(page, document.body)
-    </script>
+    <script src="bundle.js"></script>
   </body>
 </html>

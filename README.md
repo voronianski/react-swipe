@@ -14,20 +14,30 @@ npm install react-swipe
 
 ```javascript
 var React = require('react')
-var Swipe = require('react-swipe')
+var ReactSwipe = require('react-swipe')
 
-var swipeOptions = {
-    continuous: false
-}
+var Carousel = React.createClass({
+    render: function () {
+        return (
+            <ReactSwipe
+                continuous={false}
+            >
+                <div>'PANE 1'</div>
+                <div>'PANE 2'</div>
+                <div>'PANE 3'</div>
+            </ReactSwipe>
+        );
+    }
+});
 
-var carousel = Swipe(swipeOptions,
-    React.DOM.div(null, 'PANE 1'),
-    React.DOM.div(null, 'PANE 2'),
-    React.DOM.div(null, 'PANE 3')
-)
-
-React.renderComponent(carousel, document.body)
+React.render(<Carousel />, document.body)
 ```
+
+## Props
+
+Properties use all options from [Swipe.js config](https://github.com/thebird/Swipe#config-options) and one additional:
+
+- **slideToIndex** Integer - index position to set by Swipe's `.slide()` method on `componentDidUpdate` lifecycle method. It's useful when you need to control `ReactSwipe` out of component
 
 ---
 
