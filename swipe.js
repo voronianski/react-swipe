@@ -60,6 +60,12 @@ module.exports = React.createClass({
     return this.props.slideToIndex !== nextProps.slideToIndex;
   },
 
+  reinit: function() {
+    this.swipe.kill()
+    delete this.swipe
+    this.swipe = Swipe(this.getDOMNode(), this.props)
+  },
+
   render: function() {
     var container = React.DOM.div(this.props,
       React.DOM.div({style: styles.wrapper},
