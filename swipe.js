@@ -1,5 +1,5 @@
 var React = require('react/addons');
-var Swipe = require('swipe-js');
+var Swipe = require('./vendor/swipe.js');
 
 var styles = {
   container: {
