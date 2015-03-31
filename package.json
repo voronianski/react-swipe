@@ -1,6 +1,6 @@
 {
   "name": "react-swipe",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "Brad Birdsall's Swipe.js, as a React component",
   "homepage": "https://github.com/jed/react-swipe",
   "keywords": [
@@ -27,10 +27,10 @@
   },
   "dependencies": {
     "react": ">=0.12.0",
-    "swipe-js-iso": "^2.0.0"
+    "swipe-js-iso": ">=2.0.0"
   },
   "peerDependencies": {
     "react": ">=0.12.0",
-    "swipejs": ">=2.0.0"
+    "swipe-js-iso": ">=2.0.0"
   }
 }
