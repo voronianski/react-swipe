@@ -46,13 +46,13 @@
 
     componentDidMount: function () {
       if (this.isMounted()) {
-          this.swipe = Swipe(this.getDOMNode(), this.props);
+        this.swipe = Swipe(this.getDOMNode(), this.props);
       }
     },
 
     componentDidUpdate: function () {
       if (this.props.slideToIndex || this.props.slideToIndex === 0) {
-          this.swipe.slide(this.props.slideToIndex);
+        this.swipe.slide(this.props.slideToIndex);
       }
     },
 
