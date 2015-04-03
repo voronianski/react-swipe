@@ -51,7 +51,7 @@
     },
 
     componentDidUpdate: function () {
-      if (this.props.slideToIndex) {
+      if (this.props.slideToIndex || this.props.slideToIndex === 0) {
           this.swipe.slide(this.props.slideToIndex);
       }
     },
