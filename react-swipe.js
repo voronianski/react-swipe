@@ -63,8 +63,10 @@
     },
 
     shouldComponentUpdate: function (nextProps) {
-      return ((this.props.slideToIndex !== nextProps.slideToIndex) ||
-          this.props.shouldUpdate && !this.props.shouldUpdate(nextProps));
+      return (
+        (this.props.slideToIndex !== nextProps.slideToIndex) ||
+        this.props.shouldUpdate && !this.props.shouldUpdate(nextProps)
+      );
     },
 
     render: function() {
