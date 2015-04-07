@@ -35,6 +35,7 @@
     propTypes: {
       startSlide      : React.PropTypes.number,
       slideToIndex    : React.PropTypes.number,
+      shouldUpdate    : React.PropTypes.func,
       speed           : React.PropTypes.number,
       auto            : React.PropTypes.number,
       continuous      : React.PropTypes.bool,
@@ -62,7 +63,8 @@
     },
 
     shouldComponentUpdate: function (nextProps) {
-      return this.props.slideToIndex !== nextProps.slideToIndex;
+      return ((this.props.slideToIndex !== nextProps.slideToIndex) ||
+          this.props.shouldUpdate && !this.props.shouldUpdate(nextProps));
     },
 
     render: function() {
