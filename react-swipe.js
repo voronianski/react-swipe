@@ -65,7 +65,7 @@
     shouldComponentUpdate: function (nextProps) {
       return (
         (this.props.slideToIndex !== nextProps.slideToIndex) ||
-        this.props.shouldUpdate && !this.props.shouldUpdate(nextProps)
+        (typeof this.props.shouldUpdate !== 'undefined') && !this.props.shouldUpdate(nextProps)
       );
     },
 
