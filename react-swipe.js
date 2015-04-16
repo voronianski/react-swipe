@@ -75,8 +75,16 @@
     shouldComponentUpdate: function (nextProps) {
       return (
         (this.props.slideToIndex !== nextProps.slideToIndex) ||
-        (typeof this.props.shouldUpdate !== 'undefined') && this.props.shouldUpdate(nextProps, this.props)
+        (typeof this.props.shouldUpdate !== 'undefined') && 
+        this.props.shouldUpdate(nextProps, this.props) || 
+        (nextProps.children!==this.props.children)
       );
+    },
+    componentWillReceiveProps:function(newProps){
+      if(this.swipe!=null){
+        this.swipe.kill();
+      }  
+      this.swipe = Swipe(this.getDOMNode(), this.props);
     },
 
     render: function() {
