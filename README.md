@@ -10,7 +10,7 @@ Check out the [demo](https://jed.github.io/react-swipe/demo) from a mobile devic
 npm install react-swipe
 ```
 
-_Please notice that starting from version `2.1.0` component depends on React `0.13.x`, latest version which is dependant on React `0.12.x` is `2.0.11`._
+_Please notice that starting from version `2.1.0` component depends on React `0.13.x`, latest version which depends on React `0.12.x` is `2.0.11`._
 
 ## Usage
 
