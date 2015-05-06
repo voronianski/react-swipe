@@ -1,7 +1,7 @@
 (function (root, factory) {
   if (typeof module !== 'undefined' && module.exports) {
     module.exports = factory(
-      require('react/addons'),
+      require('react'),
       require('swipe-js-iso')
     );
   } else {
@@ -72,8 +72,16 @@
     render: function() {
       return React.createElement('div', React.__spread({}, this.props, {style: styles.container}),
         React.createElement('div', {style: styles.wrapper},
-          React.Children.map(this.props.children, function (child) {
-            return React.addons.cloneWithProps(child, {style: styles.child});
+          React.Children.map(this.props.children, function (child,index) {
+
+            function merge_options(obj1,obj2) {
+              var obj3 = {};
+              for (var attrname in obj1) { obj3[attrname] = obj1[attrname]; }
+              for (var attrname in obj2) { obj3[attrname] = obj2[attrname]; }
+              return obj3;
+            }
+
+            return React.cloneElement(child, {style: child.props.style ? merge_options(child.props.style,styles.child) : styles.child});
           })
         )
       );
