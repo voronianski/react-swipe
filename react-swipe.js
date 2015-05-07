@@ -2,15 +2,17 @@
   if (typeof module !== 'undefined' && module.exports) {
     module.exports = factory(
       require('react'),
-      require('swipe-js-iso')
+      require('swipe-js-iso'),
+      require('object-assign')
     );
   } else {
     root.ReactSwipe = factory(
       root.React,
-      root.Swipe
+      root.Swipe,
+      root.objectAssign
     );
   }
-})(this, function (React, Swipe) {
+})(this, function (React, Swipe, objectAssign) {
   var styles = {
     container: {
       overflow: 'hidden',
@@ -73,15 +75,7 @@
       return React.createElement('div', React.__spread({}, this.props, {style: styles.container}),
         React.createElement('div', {style: styles.wrapper},
           React.Children.map(this.props.children, function (child,index) {
-
-            function merge_options(obj1,obj2) {
-              var obj3 = {};
-              for (var attrname in obj1) { obj3[attrname] = obj1[attrname]; }
-              for (var attrname in obj2) { obj3[attrname] = obj2[attrname]; }
-              return obj3;
-            }
-
-            return React.cloneElement(child, {style: child.props.style ? merge_options(child.props.style,styles.child) : styles.child});
+            return React.cloneElement(child, {style: child.props.style ? objectAssign(child.props.style,styles.child) : styles.child});
           })
         )
       );
