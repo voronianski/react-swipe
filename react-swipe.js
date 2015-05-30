@@ -11,10 +11,6 @@
     );
   }
 })(this, function (React, Swipe) {
-  // @@@
-  // var debug = require('debug')('React-Swipe');
-  // @@@
-
   var styles = {
     container: {
       overflow: 'hidden',
