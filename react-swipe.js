@@ -54,11 +54,7 @@
       debug('startSlide', this.props.startSlide);
       debug('children', this.props.children.length);
       // server and client
-    },
 
-    componentWillReceiveProps: function () {
-      debug('componentWillReceiveProps called');
-      // called? client only?
     },
 
     componentDidMount: function () {
@@ -82,7 +78,6 @@
     },
 
     shouldComponentUpdate: function (nextProps) {
-      debug('shouldComponentUpdate called');
       return (
         (this.props.slideToIndex !== nextProps.slideToIndex) ||
         (typeof this.props.shouldUpdate !== 'undefined') && this.props.shouldUpdate(nextProps)
@@ -90,10 +85,18 @@
     },
 
     render: function() {
-      return React.createElement('div', React.__spread({}, this.props, {style: styles.container}),
+      var containerStyle = JSON.parse(JSON.stringify(styles.container));
+      if (!this.swipe) {
+        delete containerStyle.visibility;
+      }
+      return React.createElement('div', React.__spread({}, this.props, {style: containerStyle}),
         React.createElement('div', {style: styles.wrapper},
-          React.Children.map(this.props.children, function (child) {
-            return React.addons.cloneWithProps(child, {style: styles.child});
+          React.Children.map(this.props.children, function (child, i) {
+            var style = JSON.parse(JSON.stringify(styles.child));
+            if (!this.swipe && i !== this.props.startSlide) {
+              style.display = 'none';
+            }
+            return React.addons.cloneWithProps(child, {style: style});
           })
         )
       );
