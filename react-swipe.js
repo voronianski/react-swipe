@@ -11,6 +11,10 @@
     );
   }
 })(this, function (React, Swipe) {
+  // @@@
+  var debug = require('debug')('React-Swipe');
+  // @@@
+
   var styles = {
     container: {
       overflow: 'hidden',
@@ -45,7 +49,22 @@
       transitionEnd   : React.PropTypes.func
     },
 
+    componentWillMount: function () {
+      debug('componentWillMount called');
+      debug('startSlide', this.props.startSlide);
+      debug('children', this.props.children.length);
+      // server and client
+    },
+
+    componentWillReceiveProps: function () {
+      debug('componentWillReceiveProps called');
+      // called? client only?
+    },
+
     componentDidMount: function () {
+      debug('componentDidMount called');
+      // client only after initial render
+
       if (this.isMounted()) {
         this.swipe = Swipe(React.findDOMNode(this), this.props);
       }
@@ -63,6 +82,7 @@
     },
 
     shouldComponentUpdate: function (nextProps) {
+      debug('shouldComponentUpdate called');
       return (
         (this.props.slideToIndex !== nextProps.slideToIndex) ||
         (typeof this.props.shouldUpdate !== 'undefined') && this.props.shouldUpdate(nextProps)
