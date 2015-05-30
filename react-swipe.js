@@ -97,7 +97,7 @@
               style.display = 'none';
             }
             return React.addons.cloneWithProps(child, {style: style});
-          })
+          }, this)
         )
       );
     }
