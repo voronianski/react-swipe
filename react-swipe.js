@@ -12,13 +12,12 @@
   }
 })(this, function (React, Swipe) {
   // @@@
-  var debug = require('debug')('React-Swipe');
+  // var debug = require('debug')('React-Swipe');
   // @@@
 
   var styles = {
     container: {
       overflow: 'hidden',
-      visibility: 'hidden',
       position: 'relative'
     },
 
@@ -49,18 +48,7 @@
       transitionEnd   : React.PropTypes.func
     },
 
-    componentWillMount: function () {
-      debug('componentWillMount called');
-      debug('startSlide', this.props.startSlide);
-      debug('children', this.props.children.length);
-      // server and client
-
-    },
-
     componentDidMount: function () {
-      debug('componentDidMount called');
-      // client only after initial render
-
       if (this.isMounted()) {
         this.swipe = Swipe(React.findDOMNode(this), this.props);
       }
@@ -85,11 +73,7 @@
     },
 
     render: function() {
-      var containerStyle = JSON.parse(JSON.stringify(styles.container));
-      if (!this.swipe) {
-        delete containerStyle.visibility;
-      }
-      return React.createElement('div', React.__spread({}, this.props, {style: containerStyle}),
+      return React.createElement('div', React.__spread({}, this.props, {style: styles.container}),
         React.createElement('div', {style: styles.wrapper},
           React.Children.map(this.props.children, function (child, i) {
             var style = JSON.parse(JSON.stringify(styles.child));
