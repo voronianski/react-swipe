@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "react": "0.13.x",
-    "swipe-js-iso": ">=2.0.0",
+    "swipe-js-iso": ">=2.0.0"
   },
   "peerDependencies": {
     "react": "0.13.x",
