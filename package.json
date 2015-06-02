@@ -27,6 +27,7 @@
     "prepublish": "npm run build"
   },
   "dependencies": {
+    "object-assign": "2.0.0",
     "react": "0.13.x",
     "swipe-js-iso": ">=2.0.0"
   },
