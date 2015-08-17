@@ -19,6 +19,7 @@
   "license": "MIT",
   "devDependencies": {
     "browserify": "^5.9.1",
+    "react": "0.13.x",
     "uglify-js": "^2.4.19"
   },
   "scripts": {
