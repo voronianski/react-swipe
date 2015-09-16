@@ -54,6 +54,9 @@
     },
 
     componentDidUpdate: function () {
+      if(prevProps.children.length < this.props.children.length) {
+        this.swipe.setup();
+      }
       if (this.props.slideToIndex || this.props.slideToIndex === 0) {
         this.swipe.slide(this.props.slideToIndex);
       }
