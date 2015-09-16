@@ -72,7 +72,7 @@
     },
 
     render: function() {
-      return React.createElement('div', React.__spread({}, this.props, {style: styles.container}),
+      return React.createElement('div', React.__spread({}, {style: styles.container}, this.props),
         React.createElement('div', {style: styles.wrapper},
           React.Children.map(this.props.children, function (child,index) {
             return React.cloneElement(child, {
