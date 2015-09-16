@@ -53,7 +53,7 @@
       }
     },
 
-    componentDidUpdate: function () {
+    componentDidUpdate: function (prevProps) {
       if(prevProps.children.length < this.props.children.length) {
         this.swipe.setup();
       }
