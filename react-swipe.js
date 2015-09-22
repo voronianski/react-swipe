@@ -28,7 +28,8 @@
     child: {
       float: 'left',
       width: '100%',
-      position: 'relative'
+      position: 'relative',
+      transitionProperty: 'transform'
     }
   };
 
@@ -78,7 +79,7 @@
             return React.cloneElement(child, {
               ref: child.props.ref,
               key: child.props.key,
-              style: child.props.style ? objectAssign(child.props.style,styles.child) : styles.child
+              style: child.props.style ? objectAssign(child.props.style, styles.child) : styles.child
             });
           })
         )
