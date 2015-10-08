@@ -50,7 +50,7 @@
 
     componentDidMount: function () {
       if (this.isMounted()) {
-        this.swipe = Swipe(React.findDOMNode(this), objectAssign({},this.props));
+        this.swipe = Swipe(React.findDOMNode(this), objectAssign({}, this.props));
       }
     },
 
@@ -75,7 +75,7 @@
     render: function() {
       return React.createElement('div', React.__spread({}, {style: styles.container}, this.props),
         React.createElement('div', {style: styles.wrapper},
-          React.Children.map(this.props.children, function (child,index) {
+          React.Children.map(this.props.children, function (child) {
             return React.cloneElement(child, {
               ref: child.props.ref,
               key: child.props.key,
