@@ -49,11 +49,16 @@
     },
 
     componentDidMount: function () {
+      var propsClone;
       if (this.isMounted()) {
         for (var i = 0; i < this.props.children.length; i++) {
           this.refs[i].style.display = 'block';
         }
-        this.swipe = Swipe(ReactDOM.findDOMNode(this), this.props);
+
+        propsClone = Object.isFrozen(this.props) ?
+          objectAssign({}, this.props) : this.props;
+
+        this.swipe = Swipe(ReactDOM.findDOMNode(this), propsClone);
       }
     },
 
@@ -82,7 +87,7 @@
             var style = styles.child;
 
             if (!this.swipe && i !== this.props.startSlide) {
-              style = JSON.parse(JSON.stringify(styles.child));
+              style = objectAssign({}, styles.child);
               style.display = 'none';
             }
 
