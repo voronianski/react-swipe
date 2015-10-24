@@ -16,8 +16,6 @@ npm install react-swipe
 - `2.1.x` - depends on React `0.13.x`
 - `3.0.x` - depends on React and ReactDOM `0.14.x`
 
-_Please notice that starting from version `2.1.0` component depends on React `0.13.x`, latest version which depends on React `0.12.x` is `2.0.11`._
-
 ## Usage
 
 ```javascript
