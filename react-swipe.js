@@ -2,17 +2,19 @@
   if (typeof module !== 'undefined' && module.exports) {
     module.exports = factory(
       require('react'),
+      require('react-dom'),
       require('swipe-js-iso'),
       require('object-assign')
     );
   } else {
     root.ReactSwipe = factory(
       root.React,
+      root.ReactDOM,
       root.Swipe,
       root.objectAssign
     );
   }
-})(this, function (React, Swipe, objectAssign) {
+})(this, function (React, ReactDOM, Swipe, objectAssign) {
   var styles = {
     container: {
       overflow: 'hidden',
@@ -49,9 +51,7 @@
     },
 
     componentDidMount: function () {
-      if (this.isMounted()) {
-        this.swipe = Swipe(React.findDOMNode(this), objectAssign({}, this.props));
-      }
+      this.swipe = Swipe(ReactDOM.findDOMNode(this), objectAssign({}, this.props));
     },
 
     componentDidUpdate: function () {

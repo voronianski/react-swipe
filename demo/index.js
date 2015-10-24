@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react');
+var ReactDOM = require('react-dom');
 var ReactSwipe = require('../react-swipe');
 
 var Panes = Array.apply(null, Array(20)).map(function (_, i) {
@@ -36,7 +37,7 @@ var Page = React.createClass({
   }
 });
 
-React.render(
+ReactDOM.render(
   React.createElement(Page, null),
   document.getElementById('app')
 );
