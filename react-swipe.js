@@ -1,5 +1,8 @@
 (function (root, factory) {
-  if (typeof module !== 'undefined' && module.exports) {
+  if (typeof define === 'function' && define.amd) {
+    // AMD
+    define(['react', 'swipe-js-iso', 'object-assign'], factory);
+  }else if (typeof exports === 'object') {
     module.exports = factory(
       require('react'),
       require('swipe-js-iso'),
