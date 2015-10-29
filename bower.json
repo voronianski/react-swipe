@@ -1,0 +1,26 @@
+{
+  "name": "react-swipe",
+  "description": "Brad Birdsall's Swipe.js, as a React component",
+  "main": "react-swipe.js",
+  "authors": [
+    "Jed Schmidt <where@jed.is>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "component",
+    "carousel",
+    "swipe",
+    "react-component"
+  ],
+  "homepage": "https://github.com/C4Tech/react-swipe",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
