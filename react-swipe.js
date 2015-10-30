@@ -1,19 +1,21 @@
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD
-    define(['react', 'swipe-js-iso'], factory);
+    define(['react', 'react-dom', 'swipe-js-iso'], factory);
   }else if (typeof exports === 'object') {
     module.exports = factory(
-      require('react'),
-      require('swipe-js-iso')
+        require('react'),
+        require('react-dom'),
+        require('swipe-js-iso')
     );
   } else {
     root.ReactSwipe = factory(
-      root.React,
+        root.React,
+        root.ReactDOM,
       root.Swipe
     );
   }
-})(this, function (React, Swipe ) {
+})(this, function (React, ReactDOM, Swipe ) {
   var styles = {
     container: {
       overflow: 'hidden',
@@ -51,7 +53,7 @@
 
     componentDidMount: function () {
       if (this.isMounted()) {
-        this.swipe = Swipe(React.findDOMNode(this), Object.assign({}, this.props));
+        this.swipe = Swipe(ReactDOM.findDOMNode(this), Object.assign({}, this.props));
       }
     },
 

@@ -26,6 +26,7 @@
   "dependencies": {
     "react": "~0.14.1",
     "Swipe": "swipe#~2.0.0",
-    "es6-shim": "~0.33.9"
+    "es6-shim": "~0.33.9",
+    "react-dom": "~0.1.0"
   }
 }
