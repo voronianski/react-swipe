@@ -1,18 +1,16 @@
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD
-    define(['react', 'swipe-js-iso', 'object.assign'], factory);
+    define(['react', 'swipe-js-iso'], factory);
   }else if (typeof exports === 'object') {
     module.exports = factory(
       require('react'),
-      require('swipe-js-iso'),
-      require('object.assign')
+      require('swipe-js-iso')
     );
   } else {
     root.ReactSwipe = factory(
       root.React,
-      root.Swipe,
-      root.object.assign()
+      root.Swipe
     );
   }
 })(this, function (React, Swipe ) {
@@ -53,7 +51,7 @@
 
     componentDidMount: function () {
       if (this.isMounted()) {
-        this.swipe = Swipe(React.findDOMNode(this), object.assign({}, this.props));
+        this.swipe = Swipe(React.findDOMNode(this), Object.assign({}, this.props));
       }
     },
 
@@ -82,7 +80,7 @@
             return React.cloneElement(child, {
               ref: child.props.ref,
               key: child.props.key,
-              style: child.props.style ? object.assign(child.props.style, styles.child) : styles.child
+              style: child.props.style ? Object.assign(child.props.style, styles.child) : styles.child
             });
           })
         )
