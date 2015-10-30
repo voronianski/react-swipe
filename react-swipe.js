@@ -1,12 +1,12 @@
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD
-    define(['react', 'react-dom', 'swipe-js-iso'], factory);
+    define(['react', 'react-dom', 'swipe-js'], factory);
   } else if (typeof exports === 'object') {
     module.exports = factory(
       require('react'),
       require('react-dom'),
-      require('swipe-js-iso')
+      require('swipe-js')
     );
   } else {
     root.ReactSwipe = factory(
