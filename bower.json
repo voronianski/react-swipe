@@ -24,8 +24,8 @@
     "tests"
   ],
   "dependencies": {
-    "object-assign": "~4.0.1",
     "react": "~0.14.1",
-    "Swipe": "swipe#~2.0.0"
+    "Swipe": "swipe#~2.0.0",
+    "object.assign": "~4.0.3"
   }
 }
