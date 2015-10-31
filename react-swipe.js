@@ -47,7 +47,9 @@
       disableScroll   : React.PropTypes.bool,
       stopPropagation : React.PropTypes.bool,
       callback        : React.PropTypes.func,
-      transitionEnd   : React.PropTypes.func
+      transitionEnd   : React.PropTypes.func,
+      containerStyles : React.PropTypes.object,
+      wrapperStyles   : React.PropTypes.object
     },
 
     componentDidMount: function () {
@@ -73,8 +75,8 @@
     },
 
     render: function() {
-      return React.createElement('div', React.__spread({}, {style: styles.container}, this.props),
-        React.createElement('div', {style: styles.wrapper},
+      return React.createElement('div', React.__spread({}, {style: objectAssign({}, styles.container, this.props.containerStyles)}, this.props),
+        React.createElement('div', {style: objectAssign({}, styles.wrapper, this.props.wrapperStyles)},
           React.Children.map(this.props.children, function (child) {
             return React.cloneElement(child, {
               ref: child.props.ref,
