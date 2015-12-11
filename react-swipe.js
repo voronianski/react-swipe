@@ -3,7 +3,7 @@
     module.exports = factory(
       require('react'),
       require('react-dom'),
-      require('swipe-js-iso'),
+      require('swipe-js-iso-ln'),
       require('object-assign')
     );
   } else {
