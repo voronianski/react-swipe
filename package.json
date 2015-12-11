@@ -1,8 +1,8 @@
 {
   "name": "react-swipe",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Brad Birdsall's Swipe.js, as a React component",
-  "homepage": "https://github.com/jed/react-swipe",
+  "homepage": "https://github.com/localnerve/react-swipe",
   "keywords": [
     "react",
     "component",
@@ -17,12 +17,11 @@
   }],
   "repository": {
     "type": "git",
-    "url": "git://github.com/jed/react-swipe.git"
+    "url": "git://github.com/localnerve/react-swipe.git"
   },
   "main": "react-swipe.js",
   "scripts": {
     "build": "uglifyjs react-swipe.js -cm -o react-swipe.min.js",
-    "build-dev": "browserify ./demo/index.js | uglifyjs -cm > ./demo/bundle.min.js",
     "prepublish": "npm run build"
   },
   "license": "MIT",
@@ -30,15 +29,9 @@
     "object-assign": "^4.0.1",
     "react": "^0.14.0",
     "react-dom": "^0.14.0",
-    "swipe-js-iso": ">=2.0.0"
+    "swipe-js-iso-ln": "git://github.com/localnerve/swipe-js-iso-ln"
   },
   "devDependencies": {
-    "browserify": "^5.9.1",
     "uglify-js": "^2.4.19"
-  },
-  "peerDependencies": {
-    "react": "^0.14.0",
-    "react-dom": "^0.14.0",
-    "swipe-js-iso": ">=2.0.0"
   }
 }
