@@ -67,6 +67,7 @@
 
     shouldComponentUpdate: function (nextProps) {
       return (
+        (React.Children.toArray(nextProps.children) !== React.Children.toArray(this.props.children)) ||
         (this.props.slideToIndex !== nextProps.slideToIndex) ||
         (typeof this.props.shouldUpdate !== 'undefined') && this.props.shouldUpdate(nextProps)
       );
