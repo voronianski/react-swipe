@@ -49,7 +49,8 @@
       callback        : React.PropTypes.func,
       transitionEnd   : React.PropTypes.func,
       containerStyles : React.PropTypes.object,
-      wrapperStyles   : React.PropTypes.object
+      wrapperStyles   : React.PropTypes.object,
+      reinitSwipeOnUpdate : React.PropTypes.bool
     },
 
     componentDidMount: function () {
@@ -57,6 +58,10 @@
     },
 
     componentDidUpdate: function () {
+      if (this.props.reinitSwipeOnUpdate) {
+         this.swipe.kill();
+         this.swipe = Swipe(ReactDOM.findDOMNode(this), objectAssign({}, this.props));
+      }
       if (this.props.slideToIndex || this.props.slideToIndex === 0) {
         this.swipe.slide(this.props.slideToIndex);
       }
