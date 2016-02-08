@@ -4,13 +4,15 @@
 
 Check out the [demo](http://voronianski.github.io/react-swipe/demo/) from a mobile device (real or emulated).
 
-## Installation
+## Install
 
 ```bash
 npm install react react-dom swipe-js-iso react-swipe
 ```
 
 ## Usage
+
+### Example
 
 ```javascript
 var React = require('react')
@@ -33,7 +35,7 @@ var Carousel = React.createClass({
 React.render(<Carousel />, document.body)
 ```
 
-## Props
+### Props
 
 Properties are duplicates of options from [Swipe.js config](https://github.com/thebird/Swipe#config-options) but there are additional ones:
 
@@ -41,7 +43,7 @@ Properties are duplicates of options from [Swipe.js config](https://github.com/t
 
 - **shouldUpdate** Function, _arguments: nextProps {Object}_ - by default `<ReactSwipe />` component will rerender itself and children **only** if `slideToIndex` [property has changed](https://github.com/jed/react-swipe/blob/gh-pages/react-swipe.js#L65). But `shouldUpdate` prop allows to define a function and control rerendering of children on your own.
 
-## Re-rendering
+### Re-rendering
 
 See [related issue](https://github.com/jed/react-swipe/issues/23).
 
