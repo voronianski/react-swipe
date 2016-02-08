@@ -2,7 +2,7 @@
 
 [Brad Birdsall](https://github.com/thebird)'s [Swipe.js](http://swipejs.com), as a [React](http://facebook.github.io/react) component.
 
-Check out the [demo](https://jed.github.io/react-swipe/demo) from a mobile device (real or emulated).
+Check out the [demo](http://voronianski.github.io/react-swipe/demo/) from a mobile device (real or emulated).
 
 ## Installation
 
