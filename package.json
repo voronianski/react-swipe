@@ -1,6 +1,6 @@
 {
   "name": "react-swipe",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "Brad Birdsall's Swipe.js, as a React component",
   "homepage": "https://github.com/jed/react-swipe",
   "keywords": [
@@ -19,8 +19,8 @@
   "license": "MIT",
   "devDependencies": {
     "browserify": "^5.9.1",
-    "react": "^0.14.0",
-    "react-dom": "^0.14.0",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7",
     "uglify-js": "^2.4.19"
   },
   "scripts": {
@@ -32,8 +32,6 @@
     "object-assign": "^4.0.1"
   },
   "peerDependencies": {
-    "react": ">=0.14.x",
-    "react-dom": ">=0.14.x",
     "swipe-js-iso": ">=2.0.0"
   }
 }

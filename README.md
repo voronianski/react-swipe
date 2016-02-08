@@ -7,20 +7,8 @@ Check out the [demo](https://jed.github.io/react-swipe/demo) from a mobile devic
 ## Installation
 
 ```bash
-npm install react-swipe
+npm install react react-dom swipe-js-iso react-swipe
 ```
-
-As far as in npm 3.x you have to install peer dependencies by yourself, you have to install swipe-js-iso by yourself:
-
-```bash
-npm install swipe-js-iso
-```
-
-## Module and React Versions
-
-- `2.0.x` - depends on React `0.12.x`
-- `2.1.x` - depends on React `0.13.x`
-- `3.0.x` - depends on React and ReactDOM `0.14.x`
 
 ## Usage
 
