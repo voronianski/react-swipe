@@ -10,6 +10,12 @@ Check out the [demo](https://jed.github.io/react-swipe/demo) from a mobile devic
 npm install react-swipe
 ```
 
+As far as in npm 3.x you have to install peer dependencies by yourself, you have to install swipe-js-iso by yourself:
+
+```bash
+npm install swipe-js-iso
+```
+
 ## Module and React Versions
 
 - `2.0.x` - depends on React `0.12.x`
@@ -45,7 +51,7 @@ Properties are duplicates of options from [Swipe.js config](https://github.com/t
 
 - **slideToIndex** Integer - set index position by Swipe's `.slide()` method on `componentDidUpdate` lifecycle method. It's useful when you need to control `ReactSwipe` by custom next/prev buttons - just update component with new index (it wont be updated if index number is the same as previous one).
 
-- **shouldUpdate** Function, _arguments: nextProps {Object}_ - by default `<ReactSwipe />` component will rerender itself and children **only** if `slideToIndex` [property has changed](https://github.com/jed/react-swipe/blob/gh-pages/react-swipe.js#L65). But `shouldUpdate` prop allows to define a function and control rerendering of children on your own. 
+- **shouldUpdate** Function, _arguments: nextProps {Object}_ - by default `<ReactSwipe />` component will rerender itself and children **only** if `slideToIndex` [property has changed](https://github.com/jed/react-swipe/blob/gh-pages/react-swipe.js#L65). But `shouldUpdate` prop allows to define a function and control rerendering of children on your own.
 
 ---
 
