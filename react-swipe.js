@@ -38,18 +38,18 @@
   var ReactSwipe = React.createClass({
     // https://github.com/thebird/Swipe#config-options
     propTypes: {
-      startSlide      : React.PropTypes.number,
-      slideToIndex    : React.PropTypes.number,
-      shouldUpdate    : React.PropTypes.func,
-      speed           : React.PropTypes.number,
-      auto            : React.PropTypes.number,
-      continuous      : React.PropTypes.bool,
-      disableScroll   : React.PropTypes.bool,
-      stopPropagation : React.PropTypes.bool,
-      callback        : React.PropTypes.func,
-      transitionEnd   : React.PropTypes.func,
-      containerStyles : React.PropTypes.object,
-      wrapperStyles   : React.PropTypes.object,
+      startSlide          : React.PropTypes.number,
+      slideToIndex        : React.PropTypes.number,
+      shouldUpdate        : React.PropTypes.func,
+      speed               : React.PropTypes.number,
+      auto                : React.PropTypes.number,
+      continuous          : React.PropTypes.bool,
+      disableScroll       : React.PropTypes.bool,
+      stopPropagation     : React.PropTypes.bool,
+      callback            : React.PropTypes.func,
+      transitionEnd       : React.PropTypes.func,
+      containerStyles     : React.PropTypes.object,
+      wrapperStyles       : React.PropTypes.object,
       reinitSwipeOnUpdate : React.PropTypes.bool
     },
 
