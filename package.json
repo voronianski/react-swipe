@@ -32,6 +32,6 @@
     "object-assign": "^4.0.1"
   },
   "peerDependencies": {
-    "swipe-js-iso": ">=2.0.0"
+    "swipe-js-iso": ">=2.0.2"
   }
 }
