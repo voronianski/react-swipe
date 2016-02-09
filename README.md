@@ -1,6 +1,12 @@
 # react-swipe
 
-[Brad Birdsall](https://github.com/thebird)'s [Swipe.js](http://swipejs.com), as a [React](http://facebook.github.io/react) component.
+[![npm version](http://badge.fury.io/js/react-swipe.svg)](http://badge.fury.io/js/react-swipe)
+[![Dependency Status](http://david-dm.org/voronianski/react-swipe.svg)](http://david-dm.org/voronianski/react-swipe)
+[![Download Count](http://img.shields.io/npm/dm/react-swipe.svg?style=flat)](http://www.npmjs.com/package/react-swipe)
+
+> [Brad Birdsall](https://github.com/thebird)'s [Swipe.js](http://swipejs.com), as a [React](http://facebook.github.io/react) component.
+
+## Demo
 
 Check out the [demo](http://voronianski.github.io/react-swipe/demo/) from a mobile device (real or emulated).
 
@@ -51,7 +57,7 @@ In order for `react-swipe` to know that it needs to be re-rendered, you should s
 
 ```javascript
 <ReactSwipe key={images.length}>
-{images}
+  {images}
 </ReactSwipe>
 ```
 
