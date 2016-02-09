@@ -38,18 +38,19 @@
   var ReactSwipe = React.createClass({
     // https://github.com/thebird/Swipe#config-options
     propTypes: {
-      startSlide      : React.PropTypes.number,
-      slideToIndex    : React.PropTypes.number,
-      shouldUpdate    : React.PropTypes.func,
-      speed           : React.PropTypes.number,
-      auto            : React.PropTypes.number,
-      continuous      : React.PropTypes.bool,
-      disableScroll   : React.PropTypes.bool,
-      stopPropagation : React.PropTypes.bool,
-      callback        : React.PropTypes.func,
-      transitionEnd   : React.PropTypes.func,
-      containerStyles : React.PropTypes.object,
-      wrapperStyles   : React.PropTypes.object
+      startSlide          : React.PropTypes.number,
+      slideToIndex        : React.PropTypes.number,
+      shouldUpdate        : React.PropTypes.func,
+      speed               : React.PropTypes.number,
+      auto                : React.PropTypes.number,
+      continuous          : React.PropTypes.bool,
+      disableScroll       : React.PropTypes.bool,
+      stopPropagation     : React.PropTypes.bool,
+      callback            : React.PropTypes.func,
+      transitionEnd       : React.PropTypes.func,
+      containerStyles     : React.PropTypes.object,
+      wrapperStyles       : React.PropTypes.object,
+      reinitSwipeOnUpdate : React.PropTypes.bool
     },
 
     componentDidMount: function () {
@@ -57,6 +58,10 @@
     },
 
     componentDidUpdate: function () {
+      if (this.props.reinitSwipeOnUpdate) {
+        this.swipe.kill();
+        this.swipe = Swipe(ReactDOM.findDOMNode(this), objectAssign({}, this.props));
+      }
       if (this.props.slideToIndex || this.props.slideToIndex === 0) {
         this.swipe.slide(this.props.slideToIndex);
       }
