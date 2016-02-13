@@ -84,9 +84,7 @@
         React.createElement('div', {style: objectAssign({}, styles.wrapper, this.props.wrapperStyles)},
           React.Children.map(this.props.children, function (child) {
             return React.cloneElement(child, {
-              ref: child.props.ref,
-              key: child.props.key,
-              style: child.props.style ? objectAssign(child.props.style, styles.child) : styles.child
+              style: styles.child
             });
           })
         )
