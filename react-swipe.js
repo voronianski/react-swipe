@@ -89,6 +89,14 @@
           })
         )
       );
+    },
+
+    next: function() {
+      this.swipe.next();
+    },
+
+    prev: function() {
+      this.swipe.prev();
     }
   });
 
