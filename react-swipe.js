@@ -36,6 +36,8 @@
   };
 
   var ReactSwipe = React.createClass({
+    displayName: 'ReactSwipe',
+    
     // https://github.com/thebird/Swipe#config-options
     propTypes: {
       startSlide          : React.PropTypes.number,
