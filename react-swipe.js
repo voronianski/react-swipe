@@ -86,7 +86,7 @@
       if(this.swipe!=null){
         this.swipe.kill();
       }  
-      this.swipe = Swipe(this.getDOMNode(), this.props);
+      this.swipe = Swipe(ReactDOM.findDOMNode(this), objectAssign({}, this.props));
     },
 
     render: function() {
