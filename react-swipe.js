@@ -14,7 +14,9 @@
       root.objectAssign
     );
   }
-})(this, function (React, ReactDOM, Swipe, objectAssign) {
+}(this, function (React, ReactDOM, Swipe, objectAssign) {
+  'use strict';
+
   var styles = {
     container: {
       overflow: 'hidden',
@@ -37,7 +39,7 @@
 
   var ReactSwipe = React.createClass({
     displayName: 'ReactSwipe',
-    
+
     // https://github.com/thebird/Swipe#config-options
     propTypes: {
       startSlide          : React.PropTypes.number,
@@ -77,38 +79,40 @@
     shouldComponentUpdate: function (nextProps) {
       return (
         (this.props.slideToIndex !== nextProps.slideToIndex) ||
-        (typeof this.props.shouldUpdate !== 'undefined') && 
-        this.props.shouldUpdate(nextProps, this.props) || 
-        (nextProps.children!==this.props.children)
+        (typeof this.props.shouldUpdate !== 'undefined') &&
+        this.props.shouldUpdate(nextProps, this.props) ||
+        (nextProps.children !== this.props.children)
       );
     },
-    componentWillReceiveProps:function(newProps){
-      if(this.swipe!=null){
+    componentWillReceiveProps: function () {
+      if (this.swipe != null) { // eslint-disable-line eqeqeq
         this.swipe.kill();
-      }  
+      }
       this.swipe = Swipe(ReactDOM.findDOMNode(this), objectAssign({}, this.props));
     },
 
-    render: function() {
-      return React.createElement('div', React.__spread({}, {style: objectAssign({}, styles.container, this.props.containerStyles)}, this.props),
-        React.createElement('div', {style: objectAssign({}, styles.wrapper, this.props.wrapperStyles)},
-          React.Children.map(this.props.children, function (child) {
-            return React.cloneElement(child, {
-              style: styles.child
-            });
-          })
-        )
+    render: function () {
+      return React.createElement('div', React.__spread({}, {
+        style: objectAssign({}, styles.container, this.props.containerStyles)
+      }, this.props),
+        React.createElement('div', {
+          style: objectAssign({}, styles.wrapper, this.props.wrapperStyles)
+        }, React.Children.map(this.props.children, function (child) {
+          return React.cloneElement(child, {
+            style: styles.child
+          });
+        }))
       );
     },
 
-    next: function() {
+    next: function () {
       this.swipe.next();
     },
 
-    prev: function() {
+    prev: function () {
       this.swipe.prev();
     }
   });
 
   return ReactSwipe;
-});
+}));

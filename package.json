@@ -19,19 +19,26 @@
   "license": "MIT",
   "devDependencies": {
     "browserify": "^5.9.1",
+    "chai": "^3.5.0",
+    "enzyme": "^2.1.0",
+    "eslint": "^2.4.0",
+    "eslint-config-airbnb": "^6.1.0",
+    "eslint-plugin-react": "^4.2.3",
+    "mocha": "^2.4.5",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
+    "sinon": "^1.17.3",
     "uglify-js": "^2.4.19"
   },
   "scripts": {
     "build": "NODE_ENV=production uglifyjs react-swipe.js -cm -o react-swipe.min.js",
     "build-dev": "browserify ./demo/index.js | uglifyjs -cm > ./demo/bundle.min.js",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "lint": "eslint react-swipe.js",
+    "lint-dev": "eslint --fix react-swipe.js",
+    "test": "echo \"Comming soon ;)\" && exit 0"
   },
   "dependencies": {
     "object-assign": "^4.0.1"
-  },
-  "peerDependencies": {
-    "swipe-js-iso": ">=2.0.2"
   }
 }
