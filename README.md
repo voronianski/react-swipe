@@ -54,7 +54,7 @@ ReactDOM.render(
     -  `container: ?Object`
     -  `wrapper: ?Object`
     -  `child: ?Object` 
-- Regular props as `className`, `id` for root component are supported
+- regular props as `className`, `id` for root component are also supported
 
 ### Re-rendering
 

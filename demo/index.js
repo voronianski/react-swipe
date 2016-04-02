@@ -1,43 +1,66 @@
-'use strict';
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import querystring from 'querystring';
+import ReactSwipe from '../src/ReactSwipe';
 
-var React = require('react');
-var ReactDOM = require('react-dom');
-var ReactSwipe = require('../react-swipe');
+const query = querystring.parse(window.location.search.slice(1));
 
-var Panes = Array.apply(null, Array(20)).map(function (_, i) {
-  return React.createElement('div', {key: i},
-      React.createElement('b', null, i)
-  );
-});
-
-var Page = React.createClass({
-  next: function () {
-    this.refs.ReactSwipe.swipe.next();
-  },
-
-  prev: function () {
-    this.refs.ReactSwipe.swipe.prev();
-  },
-
-  render: function () {
+// generate slide panes
+const numberOfSlides = parseInt(query.slidesNum, 10) || 20;
+const paneNodes = Array.apply(null, Array(numberOfSlides)).map((_, i) => {
     return (
-      React.createElement('div', null,
-        React.createElement('h1', null, 'ReactSwipe'),
-        React.createElement('h2', null, 'Open this page from a mobile device (real or emulated).'),
-        React.createElement(ReactSwipe, {
-          ref: 'ReactSwipe',
-          id: 'mySwipe'
-        }, Panes),
-        React.createElement('div', {style: {textAlign: 'center'}},
-          React.createElement('button', {onClick: this.prev}, 'Prev'),
-          React.createElement('button', {onClick: this.next}, 'Next')
-        )
-      )
+        <div key={i}>
+            <div className="item">{i}</div>
+        </div>
     );
-  }
 });
+
+// change Swipe.js options by query params
+const startSlide = parseInt(query.startSlide, 10) || 0;
+const swipeOptions = {
+    startSlide: startSlide < paneNodes.length && startSlide >= 0 ? startSlide : 0,
+    auto: parseInt(query.auto, 10) || 0,
+    speed: parseInt(query.speed, 10) || 300,
+    disableScroll: query.disableScroll === 'true',
+    continuous: query.continuous === 'true',
+    callback() {
+        console.log('slide changed');
+    },
+    transitionEnd() {
+        console.log('ended transition');
+    }
+};
+
+class Page extends Component {
+    next() {
+        this.refs.reactSwipe.next();
+    }
+
+    prev() {
+        this.refs.reactSwipe.prev();
+    }
+
+    render() {
+        return (
+            <div className="center">
+                <h1>ReactSwipe.js</h1>
+                <h2>Open this page from a mobile device (real or emulated).</h2>
+                <h2>You can pass <a href="https://github.com/voronianski/swipe-js-iso#config-options">Swipe.js options</a> as query params.</h2>
+
+                <ReactSwipe ref="reactSwipe" className="mySwipe" swipeOptions={swipeOptions}>
+                    {paneNodes}
+                </ReactSwipe>
+
+                <div>
+                    <button type="button" onClick={::this.prev}>Prev</button>
+                    <button type="button" onClick={::this.next}>Next</button>
+                </div>
+            </div>
+        );
+    }
+}
 
 ReactDOM.render(
-  React.createElement(Page, null),
-  document.getElementById('app')
+    <Page />,
+    document.getElementById('app')
 );
