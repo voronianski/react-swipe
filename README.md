@@ -49,8 +49,12 @@ ReactDOM.render(
 
 ### Props
 
-- `swipeOptions` - all options from [Swipe.js config](https://github.com/voronianski/swipe-js-iso#config-options)
-- `style`
+- `swipeOptions: ?Object` - supports all original options from [Swipe.js config](https://github.com/voronianski/swipe-js-iso#config-options)
+- `style: ?Object` - object with 3 keys (see [defaults](https://github.com/voronianski/react-swipe/blob/gh-pages/src/reactSwipe.js#L28)):
+    -  `container: ?Object`
+    -  `wrapper: ?Object`
+    -  `child: ?Object` 
+- Regular props as `className`, `id` for root component are supported
 
 ### Re-rendering
 
