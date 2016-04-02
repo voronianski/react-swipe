@@ -11,6 +11,8 @@
 
 Check out the [demo](http://voronianski.github.io/react-swipe/demo/) from a mobile device (real or emulated).
 
+<img src="https://dl.dropboxusercontent.com/u/100463011/react-swipe-demo.gif" width="600" />
+
 ## Install
 
 ```bash
@@ -22,33 +24,32 @@ npm install react react-dom swipe-js-iso react-swipe
 ### Example
 
 ```javascript
-var React = require('react')
-var ReactSwipe = require('react-swipe')
+import React from 'react'
+import ReactDOM from 'react-dom';
+import ReactSwipe from 'react-swipe';
 
-var Carousel = React.createClass({
-    render: function () {
+class Carousel extends React.Component {
+    render() {
         return (
-            <ReactSwipe
-                continuous={false}
-            >
+            <ReactSwipe className="carousel" swipeOptions={{continuous: false}}>
                 <div>'PANE 1'</div>
                 <div>'PANE 2'</div>
                 <div>'PANE 3'</div>
             </ReactSwipe>
         );
     }
-});
+}
 
-React.render(<Carousel />, document.body)
+ReactDOM.render(
+    <Carousel />, 
+    document.getElementById('app')
+);
 ```
 
 ### Props
 
-Properties are duplicates of options from [Swipe.js config](https://github.com/thebird/Swipe#config-options) but there are additional ones:
-
-- **slideToIndex** Integer - set index position by Swipe's `.slide()` method on `componentDidUpdate` lifecycle method. It's useful when you need to control `ReactSwipe` by custom next/prev buttons - just update component with new index (it wont be updated if index number is the same as previous one).
-
-- **shouldUpdate** Function, _arguments: nextProps {Object}_ - by default `<ReactSwipe />` component will rerender itself and children **only** if `slideToIndex` [property has changed](https://github.com/jed/react-swipe/blob/gh-pages/react-swipe.js#L65). But `shouldUpdate` prop allows to define a function and control rerendering of children on your own.
+- `swipeOptions` - all options from [Swipe.js config](https://github.com/voronianski/swipe-js-iso#config-options)
+- `style`
 
 ### Re-rendering
 
@@ -58,7 +59,7 @@ In order for `react-swipe` to know that it needs to be re-rendered, you should s
 
 ```javascript
 <ReactSwipe key={images.length}>
-  {images}
+    {images}
 </ReactSwipe>
 ```
 
