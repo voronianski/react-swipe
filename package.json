@@ -45,7 +45,7 @@
   },
   "scripts": {
     "build": "babel ./src/ReactSwipe.js --out-file react-swipe.js",
-    "build-dev": "browserify ./demo/index.js | uglifyjs -cm > ./demo/bundle.min.js",
+    "build-dev": "browserify ./new-demo/index.js -t [ babelify --presets [ es2015 stage-0 react ] --plugins [ transform-object-assign ] ] | uglifyjs -cm > ./new-demo/bundle.min.js" ,
     "prepublish": "npm run build",
     "lint": "eslint ./src",
     "lint-dev": "eslint --fix ./src",

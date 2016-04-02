@@ -19,6 +19,7 @@ class ReactSwipe extends Component {
             wrapper: PropTypes.object,
             child: PropTypes.object
         }),
+        id: PropTypes.string,
         className: PropTypes.string
     };
 
@@ -64,11 +65,11 @@ class ReactSwipe extends Component {
     }
 
     render() {
-        const { className, style } = this.props;
+        const { id, className, style, children } = this.props;
         return (
-            <div ref="container" className={`react-swipe-container ${className}`} style={style.container}>
+            <div ref="container" id={id} className={`react-swipe-container ${className}`} style={style.container}>
                 <div style={style.wrapper}>
-                    {React.Children.map(child => {
+                    {React.Children.map(children, child => {
                         return React.cloneElement(child, {style: style.child});
                     })}
                 </div>
