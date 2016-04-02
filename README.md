@@ -15,7 +15,7 @@ Check out the [demo](http://voronianski.github.io/react-swipe/demo/) from a mobi
 ## Install
 
 ```bash
-npm install react react-dom swipe-js-iso react-swipe
+npm install react swipe-js-iso react-swipe
 ```
 
 ## Usage
