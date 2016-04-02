@@ -1,6 +1,6 @@
 {
   "name": "react-swipe",
-  "version": "4.1.3",
+  "version": "5.0.0-pre",
   "description": "Brad Birdsall's Swipe.js, as a React component",
   "homepage": "https://github.com/voronianski/react-swipe",
   "keywords": [
@@ -10,7 +10,10 @@
     "swipe",
     "react-component"
   ],
-  "author": "Jed Schmidt <where@jed.is>",
+  "author": "Dmitri Voronianski <dmitri.voronianski@gmail.com>",
+  "contributors": [
+    "Jed Schmidt <where@jed.is>"
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/voronianski/react-swipe.git"
@@ -18,27 +21,35 @@
   "main": "react-swipe.js",
   "license": "MIT",
   "devDependencies": {
-    "browserify": "^5.9.1",
+    "ava": "^0.13.0",
+    "babel-cli": "^6.6.5",
+    "babel-eslint": "^6.0.2",
+    "babel-plugin-transform-object-assign": "^6.5.0",
+    "babel-preset-es2015": "^6.6.0",
+    "babel-preset-react": "^6.5.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "babel-register": "^6.7.2",
+    "babelify": "^7.2.0",
+    "browserify": "^13.0.0",
     "chai": "^3.5.0",
-    "enzyme": "^2.1.0",
-    "eslint": "^2.4.0",
-    "eslint-config-airbnb": "^6.1.0",
+    "enzyme": "^2.2.0",
+    "eslint": "^2.6.0",
+    "eslint-config-airbnb": "^6.2.0",
     "eslint-plugin-react": "^4.2.3",
     "mocha": "^2.4.5",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "sinon": "^1.17.3",
-    "uglify-js": "^2.4.19"
+    "swipe-js-iso": "^2.0.3",
+    "uglify-js": "^2.6.2"
   },
   "scripts": {
-    "build": "NODE_ENV=production uglifyjs react-swipe.js -cm -o react-swipe.min.js",
+    "build": "babel ./src/ReactSwipe.js --out-file react-swipe.js",
     "build-dev": "browserify ./demo/index.js | uglifyjs -cm > ./demo/bundle.min.js",
     "prepublish": "npm run build",
-    "lint": "eslint react-swipe.js",
-    "lint-dev": "eslint --fix react-swipe.js",
+    "lint": "eslint ./src",
+    "lint-dev": "eslint --fix ./src",
     "test": "echo \"Comming soon ;)\" && exit 0"
   },
-  "dependencies": {
-    "object-assign": "^4.0.1"
-  }
+  "dependencies": {}
 }
