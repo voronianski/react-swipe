@@ -17,21 +17,27 @@ html, body {
     background: #f3f3f3;
 }
 
+a {
+    color: #14ADE5;
+}
+a:hover {
+    text-decoration: none;
+}
+
 .center {
     text-align: center;
 }
 
 h1 {
-    font-size: 33px;
-    margin: 50px 0 15px;
+    font-size: 34px;
+    margin: 50px auto 20px;
     color: #212121;
 }
 
 h2 {
     font-size: 14px;
-    font-weight: bold;
     color: #3c3c3c;
-    margin: 20px 10px 10px;
+    margin:10px;
 }
 
 .mySwipe {

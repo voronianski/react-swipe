@@ -2,10 +2,9 @@
 
 [![build status](http://img.shields.io/travis/voronianski/react-swipe.svg?style=flat)](https://travis-ci.org/voronianski/react-swipe)
 [![npm version](http://badge.fury.io/js/react-swipe.svg)](http://badge.fury.io/js/react-swipe)
-[![Dependency Status](http://david-dm.org/voronianski/react-swipe.svg)](http://david-dm.org/voronianski/react-swipe)
 [![Download Count](http://img.shields.io/npm/dm/react-swipe.svg?style=flat)](http://www.npmjs.com/package/react-swipe)
 
-> [Brad Birdsall](https://github.com/thebird)'s [Swipe.js](http://swipejs.com), as a [React](http://facebook.github.io/react) component.
+> [Brad Birdsall](https://github.com/thebird)'s [Swipe.js](http://swipejs.com) as a [React](http://facebook.github.io/react) component.
 
 ## Demo
 
@@ -45,6 +44,8 @@ ReactDOM.render(
     document.getElementById('app')
 );
 ```
+
+**Source code of [demo](http://voronianski.github.io/react-swipe/demo/) is available [here](https://github.com/voronianski/react-swipe/blob/gh-pages/demo/index.js).**
 
 ### Props
 
