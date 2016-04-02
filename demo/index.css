@@ -9,12 +9,9 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, del, dfn, em, 
 }
 
 body {
+    background: #f3f3f3;
     font-family: 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
     -webkit-text-size-adjust: none;
-}
-
-html, body {
-    background: #f3f3f3;
 }
 
 a {
@@ -44,7 +41,6 @@ h2 {
     margin: 0 auto;
 }
 .mySwipe .item {
-    display: block;
     font-weight: bold;
     color: #14ADE5;
     font-size: 20px;

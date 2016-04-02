@@ -5,6 +5,7 @@
         "react"
     ],
     "plugins": [
+        "add-module-exports",
         "transform-object-assign"
     ]
 }

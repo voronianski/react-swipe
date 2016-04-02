@@ -179,6 +179,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	};
 	exports.default = ReactSwipe;
+	module.exports = exports['default'];
 
 /***/ },
 /* 1 */
