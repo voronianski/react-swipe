@@ -176,7 +176,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            position: 'relative',
 	            transitionProperty: 'transform'
 	        }
-	    }
+	    },
+	    className: ''
 	};
 	exports.default = ReactSwipe;
 	module.exports = exports['default'];

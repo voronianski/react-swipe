@@ -1,6 +1,6 @@
 {
   "name": "react-swipe",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "description": "Brad Birdsall's Swipe.js, as a React component",
   "homepage": "https://github.com/voronianski/react-swipe",
   "keywords": [
@@ -53,7 +53,7 @@
     "build": "npm run build-babel && npm run build-dist-dev && npm run build-dist-prod",
     "build-dist-dev": "NODE_ENV=development webpack --config webpack.config --colors",
     "build-dist-prod": "NODE_ENV=production webpack --config webpack.config --progress --colors -p",
-    "build-demo": "browserify ./new-demo/index.js -t [ babelify --presets [ es2015 stage-0 react ] --plugins [ transform-object-assign ] ] | uglifyjs -cm > ./new-demo/bundle.min.js",
+    "build-demo": "browserify ./demo/index.js -t [ babelify --presets [ es2015 stage-0 react ] --plugins [ transform-object-assign ] ] | uglifyjs -cm > ./demo/bundle.min.js",
     "build-babel": "babel ./src/ReactSwipe.js --out-file index.js",
     "lint": "eslint ./src",
     "lint-dev": "eslint --fix ./src",
