@@ -43,7 +43,8 @@ class ReactSwipe extends Component {
                 position: 'relative',
                 transitionProperty: 'transform'
             }
-        }
+        },
+        className: ''
     };
 
     componentDidMount() {
