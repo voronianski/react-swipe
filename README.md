@@ -56,6 +56,10 @@ ReactDOM.render(
     -  `child: ?Object` 
 - regular props as `className`, `id` for root component are also supported
 
+## Methods
+
+Component proxies all [Swipe.js instance methods](https://github.com/thebird/swipe#swipe-api).
+
 ### Re-rendering
 
 See [related issue](https://github.com/jed/react-swipe/issues/23).

@@ -65,8 +65,16 @@ class ReactSwipe extends Component {
         this.swipe.prev();
     }
 
-    slide(index, duration){
-        this.swipe.slide(index, duration);
+    slide(...args) {
+        this.swipe.slide(...args);
+    }
+
+    getPos() {
+        return this.swipe.getPos();
+    }
+
+    getNumSlides() {
+        return this.swipe.getNumSlides();
     }
 
     render() {

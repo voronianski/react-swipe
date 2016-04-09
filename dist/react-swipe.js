@@ -111,6 +111,23 @@ return /******/ (function(modules) { // webpackBootstrap
 	            this.swipe.prev();
 	        }
 	    }, {
+	        key: 'slide',
+	        value: function slide() {
+	            var _swipe;
+
+	            (_swipe = this.swipe).slide.apply(_swipe, arguments);
+	        }
+	    }, {
+	        key: 'getPos',
+	        value: function getPos() {
+	            return this.swipe.getPos();
+	        }
+	    }, {
+	        key: 'getNumSlides',
+	        value: function getNumSlides() {
+	            return this.swipe.getNumSlides();
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            var _props = this.props;
