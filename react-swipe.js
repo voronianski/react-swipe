@@ -81,7 +81,7 @@
     },
 
     render: function() {
-      return React.createElement('div', React.__spread({}, this.props, {style: styles.container}),
+      return React.createElement('div', objectAssign({}, this.props, {style: styles.container}),
         React.createElement('div', {style: styles.wrapper},
           React.Children.map(this.props.children, function (child, i) {
             var style = styles.child;
@@ -93,7 +93,6 @@
 
             return React.cloneElement(child, {
               ref: i,
-              key: child.props.key,
               style: child.props.style ? objectAssign(child.props.style, style) : style
             });
           }, this)
