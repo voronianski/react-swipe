@@ -20,6 +20,9 @@
   },
   "main": "index.js",
   "license": "MIT",
+  "dependencies": {
+    "swipe-js-iso": "^2.0.3"
+  },
   "devDependencies": {
     "ava": "^0.13.0",
     "babel-cli": "^6.6.5",
@@ -44,7 +47,6 @@
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "sinon": "^1.17.3",
-    "swipe-js-iso": "^2.0.3",
     "uglify-js": "^2.6.2",
     "webpack": "^1.12.14",
     "webpack-umd-external": "^1.0.2"
