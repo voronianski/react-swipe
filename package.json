@@ -1,6 +1,6 @@
 {
   "name": "react-swipe",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "description": "Brad Birdsall's Swipe.js, as a React component",
   "homepage": "https://github.com/localnerve/react-swipe",
   "keywords": [
@@ -22,7 +22,8 @@
   "main": "react-swipe.js",
   "scripts": {
     "build": "uglifyjs react-swipe.js -cm -o react-swipe.min.js",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "test": "eslint ."
   },
   "license": "MIT",
   "dependencies": {
@@ -32,6 +33,8 @@
     "swipe-js-iso-ln": "git://github.com/localnerve/swipe-js-iso-ln"
   },
   "devDependencies": {
-    "uglify-js": "^2.4.19"
+    "uglify-js": "^2.4.19",
+    "eslint": "^2.13.1",
+    "eslint-plugin-react": "5.2.2"
   }
 }

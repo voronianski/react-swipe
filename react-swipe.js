@@ -45,21 +45,19 @@
       disableScroll   : React.PropTypes.bool,
       stopPropagation : React.PropTypes.bool,
       callback        : React.PropTypes.func,
-      transitionEnd   : React.PropTypes.func
+      transitionEnd   : React.PropTypes.func,
+      children        : React.PropTypes.array
     },
 
     componentDidMount: function () {
-      var propsClone;
-      if (this.isMounted()) {
-        for (var i = 0; i < this.props.children.length; i++) {
-          this.refs[i].style.display = 'block';
-        }
-
-        propsClone = Object.isFrozen(this.props) ?
-          objectAssign({}, this.props) : this.props;
-
-        this.swipe = Swipe(ReactDOM.findDOMNode(this), propsClone);
+      for (var i = 0; i < this.props.children.length; i++) {
+        this.refs[i].style.display = 'block';
       }
+
+      var propsClone = Object.isFrozen(this.props) ?
+        objectAssign({}, this.props) : this.props;
+
+      this.swipe = Swipe(this.refs.container, propsClone);
     },
 
     componentDidUpdate: function () {
@@ -76,28 +74,31 @@
     shouldComponentUpdate: function (nextProps) {
       return (
         (this.props.slideToIndex !== nextProps.slideToIndex) ||
-        (typeof this.props.shouldUpdate !== 'undefined') && this.props.shouldUpdate(nextProps)
+        (typeof this.props.shouldUpdate !== 'undefined') &&
+          this.props.shouldUpdate(nextProps)
       );
     },
 
     render: function() {
-      return React.createElement('div', objectAssign({}, this.props, {style: styles.container}),
-        React.createElement('div', {style: styles.wrapper},
-          React.Children.map(this.props.children, function (child, i) {
-            var style = styles.child;
+      return React.createElement('div', {
+        ref: 'container',
+        style: styles.container
+      }, React.createElement('div', { style: styles.wrapper },
+        React.Children.map(this.props.children, function (child, i) {
+          var style = styles.child;
 
-            if (!this.swipe && i !== this.props.startSlide) {
-              style = objectAssign({}, styles.child);
-              style.display = 'none';
-            }
+          if (!this.swipe && i !== this.props.startSlide) {
+            style = objectAssign({}, styles.child);
+            style.display = 'none';
+          }
 
-            return React.cloneElement(child, {
-              ref: i,
-              style: child.props.style ? objectAssign(child.props.style, style) : style
-            });
-          }, this)
-        )
-      );
+          return React.cloneElement(child, {
+            ref: i,
+            style: child.props.style ?
+              objectAssign(child.props.style, style) : style
+          });
+        }, this)
+      ));
     }
   });
 

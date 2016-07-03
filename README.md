@@ -2,8 +2,8 @@
 
 ## About This Fork
 This is a fork of react-swipe 2.3.1 that:
-* Shows the result of server-side rendering obeying the startSlide index option.
-* Updated to use React 0.14.x
+* Shows the result of server-side rendering - obeying the startSlide index option.
+* Updated to use React 0.15.x
 
 ### What? Why?
 The original does not show the result of server-side rendering and the maintainers stated they were not interested in this behavior. I say, "shows the result" because the server-side rendered markup was there, it was just hidden.

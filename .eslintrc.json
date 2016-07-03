@@ -1,0 +1,17 @@
+{
+  "env": {
+    "node": true
+  },
+  "plugins": [
+    "react"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  "rules": {
+    "indent": [2, 2, {"SwitchCase": 1}],
+    "quotes": [2, "single"],
+    "dot-notation": [2, {"allowKeywords": true}]
+  }
+}
