@@ -87,7 +87,7 @@ class ReactSwipe extends Component {
         <div style={style.wrapper}>
           {React.Children.map(children, (child) => {
             return React.cloneElement(child, {
-              style: child.props.style ? objectAssign(child.props.style, style.child) : style.child
+              style: objectAssign(child.props.style, style.child)
             });
           })}
         </div>
