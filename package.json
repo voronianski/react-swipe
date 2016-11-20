@@ -21,6 +21,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "object-assign": "^4.1.0",
     "swipe-js-iso": "^2.0.3"
   },
   "devDependencies": {
