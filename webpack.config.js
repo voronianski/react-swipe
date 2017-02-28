@@ -21,7 +21,7 @@ if (env === 'production') {
 }
 
 const config = {
-    entry: path.join(__dirname, 'src/ReactSwipe.js'),
+    entry: path.join(__dirname, 'src/reactSwipe.js'),
 
     output: {
         path: path.join(__dirname, 'dist'),
