@@ -3,6 +3,8 @@
     module.exports = factory(
       require('react'),
       require('react-dom'),
+      require('prop-types'),
+      require('create-react-class'),
       require('swipe-js-iso-ln'),
       require('object-assign')
     );
@@ -10,11 +12,14 @@
     root.ReactSwipe = factory(
       root.React,
       root.ReactDOM,
+      root.PropTypes,
+      root.createReactClass,
       root.Swipe,
       root.objectAssign
     );
   }
-})(this, function (React, ReactDOM, Swipe, objectAssign) {
+})(this,
+function (React, ReactDOM, PropTypes, createReactClass, Swipe, objectAssign) {
   var styles = {
     container: {
       overflow: 'hidden',
@@ -33,20 +38,20 @@
     }
   };
 
-  var ReactSwipe = React.createClass({
+  var ReactSwipe = createReactClass({
     // https://github.com/thebird/Swipe#config-options
     propTypes: {
-      startSlide      : React.PropTypes.number,
-      slideToIndex    : React.PropTypes.number,
-      shouldUpdate    : React.PropTypes.func,
-      speed           : React.PropTypes.number,
-      auto            : React.PropTypes.number,
-      continuous      : React.PropTypes.bool,
-      disableScroll   : React.PropTypes.bool,
-      stopPropagation : React.PropTypes.bool,
-      callback        : React.PropTypes.func,
-      transitionEnd   : React.PropTypes.func,
-      children        : React.PropTypes.array
+      startSlide      : PropTypes.number,
+      slideToIndex    : PropTypes.number,
+      shouldUpdate    : PropTypes.func,
+      speed           : PropTypes.number,
+      auto            : PropTypes.number,
+      continuous      : PropTypes.bool,
+      disableScroll   : PropTypes.bool,
+      stopPropagation : PropTypes.bool,
+      callback        : PropTypes.func,
+      transitionEnd   : PropTypes.func,
+      children        : PropTypes.array
     },
 
     componentDidMount: function () {

@@ -1,6 +1,6 @@
 {
   "name": "react-swipe",
-  "version": "4.1.0",
+  "version": "4.2.0",
   "description": "Brad Birdsall's Swipe.js, as a React component",
   "homepage": "https://github.com/localnerve/react-swipe",
   "keywords": [
@@ -28,8 +28,10 @@
   "license": "MIT",
   "dependencies": {
     "object-assign": "^4.0.1",
-    "react": "^15.0.1",
-    "react-dom": "^15.0.1",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "prop-types": "^15.5.8",
+    "create-react-class": "^15.5.2",
     "swipe-js-iso-ln": "git://github.com/localnerve/swipe-js-iso-ln"
   },
   "devDependencies": {
