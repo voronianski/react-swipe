@@ -1,6 +1,6 @@
 {
   "name": "react-swipe",
-  "version": "5.0.6",
+  "version": "5.0.7",
   "description": "Brad Birdsall's Swipe.js, as a React component",
   "homepage": "https://github.com/voronianski/react-swipe",
   "keywords": [
@@ -23,10 +23,10 @@
   "dependencies": {
     "object-assign": "^4.1.0",
     "swipe-js-iso": "^2.0.3",
-    "prop-types": "^15.5.7" 
+    "prop-types": "^15.5.7"
   },
   "peerDependencies": {
-    "react": "^15.5.0" 
+    "react": "^15.5.0"
   },
   "devDependencies": {
     "ava": "^0.13.0",
