@@ -135,11 +135,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var _props = this.props;
-	      var id = _props.id;
-	      var className = _props.className;
-	      var style = _props.style;
-	      var children = _props.children;
+	      var _props = this.props,
+	          id = _props.id,
+	          className = _props.className,
+	          style = _props.style,
+	          children = _props.children;
 
 
 	      return _react2.default.createElement(
@@ -150,7 +150,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          { style: style.wrapper },
 	          _react2.default.Children.map(children, function (child) {
 	            return _react2.default.cloneElement(child, {
-	              style: child.props.style ? (0, _objectAssign2.default)(child.props.style, style.child) : style.child
+	              style: child.props.style ? (0, _objectAssign2.default)({}, child.props.style, style.child) : style.child
 	            });
 	          })
 	        )
@@ -223,8 +223,15 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 3 */
 /***/ function(module, exports) {
 
+	/*
+	object-assign
+	(c) Sindre Sorhus
+	@license MIT
+	*/
+
 	'use strict';
 	/* eslint-disable no-unused-vars */
+	var getOwnPropertySymbols = Object.getOwnPropertySymbols;
 	var hasOwnProperty = Object.prototype.hasOwnProperty;
 	var propIsEnumerable = Object.prototype.propertyIsEnumerable;
 
@@ -245,7 +252,7 @@ return /******/ (function(modules) { // webpackBootstrap
 			// Detect buggy property enumeration order in older V8 versions.
 
 			// https://bugs.chromium.org/p/v8/issues/detail?id=4118
-			var test1 = new String('abc');  // eslint-disable-line
+			var test1 = new String('abc');  // eslint-disable-line no-new-wrappers
 			test1[5] = 'de';
 			if (Object.getOwnPropertyNames(test1)[0] === '5') {
 				return false;
@@ -274,7 +281,7 @@ return /******/ (function(modules) { // webpackBootstrap
 			}
 
 			return true;
-		} catch (e) {
+		} catch (err) {
 			// We don't expect any of the above to throw, but better to be safe.
 			return false;
 		}
@@ -294,8 +301,8 @@ return /******/ (function(modules) { // webpackBootstrap
 				}
 			}
 
-			if (Object.getOwnPropertySymbols) {
-				symbols = Object.getOwnPropertySymbols(from);
+			if (getOwnPropertySymbols) {
+				symbols = getOwnPropertySymbols(from);
 				for (var i = 0; i < symbols.length; i++) {
 					if (propIsEnumerable.call(from, symbols[i])) {
 						to[symbols[i]] = from[symbols[i]];
