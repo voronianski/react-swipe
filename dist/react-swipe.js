@@ -153,9 +153,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	          'div',
 	          { style: style.wrapper },
 	          _react2.default.Children.map(children, function (child) {
-	            return _react2.default.cloneElement(child, {
-	              style: child.props.style ? (0, _objectAssign2.default)({}, child.props.style, style.child) : style.child
-	            });
+	            if (!child) {
+	              return null;
+	            }
+
+	            var childStyle = child.props.style ? (0, _objectAssign2.default)({}, style.child, child.props.style) : style.child;
+
+	            return _react2.default.cloneElement(child, { style: childStyle });
 	          })
 	        )
 	      );
