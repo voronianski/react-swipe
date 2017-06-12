@@ -51,8 +51,8 @@ class ReactSwipe extends Component {
 
   componentDidMount() {
     const { swipeOptions } = this.props;
-
-    this.swipe = Swipe(this.refs.container, swipeOptions);
+    
+    this.swipe = Swipe(this.container, swipeOptions);
   }
 
   componentWillUnmount() {
@@ -84,7 +84,7 @@ class ReactSwipe extends Component {
     const { id, className, style, children } = this.props;
 
     return (
-      <div ref="container" id={id} className={`react-swipe-container ${className}`} style={style.container}>
+      <div ref={container => this.container = container} id={id} className={`react-swipe-container ${className}`} style={style.container}>
         <div style={style.wrapper}>
           {React.Children.map(children, (child) => {
             if (!child) {
