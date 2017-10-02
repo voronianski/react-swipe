@@ -37,22 +37,21 @@ const config = {
   }),
 
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['.js', '.jsx']
   },
 
   plugins: pluginsList,
 
   module: {
-    preLoaders: [{
+    rules: [{
+      enforce: 'pre',
       test: /\.jsx?$/,
-      loaders: ['eslint'],
+      loader: 'eslint-loader',
       exclude: /node_modules/
-    }],
-
-    loaders: [{
+    }, {
       test: /\.jsx?$/,
       exclude: /node_modules/,
-      loaders: ['babel']
+      loader: 'babel-loader'
     }]
   }
 };
