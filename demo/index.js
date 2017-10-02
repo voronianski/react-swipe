@@ -33,11 +33,11 @@ const swipeOptions = {
 
 class Page extends Component {
   next() {
-    this.refs.reactSwipe.next();
+    this.reactSwipe.next();
   }
 
   prev() {
-    this.refs.reactSwipe.prev();
+    this.reactSwipe.prev();
   }
 
   render() {
@@ -47,7 +47,7 @@ class Page extends Component {
         <h2>Open this page from a mobile device (real or emulated).</h2>
         <h2>You can pass <a href="https://github.com/voronianski/swipe-js-iso#config-options">Swipe.js options</a> as query params.</h2>
 
-        <ReactSwipe ref="reactSwipe" className="mySwipe" swipeOptions={swipeOptions}>
+        <ReactSwipe ref={reactSwipe => this.reactSwipe = reactSwipe} className="mySwipe" swipeOptions={swipeOptions}>
             {paneNodes}
         </ReactSwipe>
 
