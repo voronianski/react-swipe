@@ -62,7 +62,7 @@ class ReactSwipe extends Component {
 
     if (prevProps.childCount !== childCount) {
       this.swipe.kill();
-      this.swipe = Swipe(this.refs.container, swipeOptions);
+      this.swipe = Swipe(this.container, swipeOptions);
     }
   }
 
