@@ -22,7 +22,8 @@ class ReactSwipe extends Component {
       child: PropTypes.object
     }),
     id: PropTypes.string,
-    className: PropTypes.string
+    className: PropTypes.string,
+    childCount: PropTypes.number
   };
 
   static defaultProps = {
@@ -46,13 +47,23 @@ class ReactSwipe extends Component {
         transitionProperty: 'transform'
       }
     },
-    className: ''
+    className: '',
+    childCount: 0
   };
 
   componentDidMount() {
     const { swipeOptions } = this.props;
-    
+
     this.swipe = Swipe(this.container, swipeOptions);
+  }
+
+  componentDidUpdate(prevProps) {
+    const { childCount, swipeOptions } = this.props;
+
+    if (prevProps.childCount !== childCount) {
+      this.swipe.kill();
+      this.swipe = Swipe(this.container, swipeOptions);
+    }
   }
 
   componentWillUnmount() {
