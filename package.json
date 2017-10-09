@@ -30,8 +30,8 @@
     "object-assign": "^4.0.1",
     "react": "^15.5.4 || ^16.0.0",
     "react-dom": "^15.5.4 || ^16.0.0",
-    "prop-types": "^15.5.8",
-    "create-react-class": "^15.5.2",
+    "prop-types": "^15.6.0",
+    "create-react-class": "^15.6.2",
     "swipe-js-iso-ln": "git://github.com/localnerve/swipe-js-iso-ln"
   },
   "devDependencies": {
