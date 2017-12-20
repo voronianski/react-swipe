@@ -10,7 +10,7 @@
 
 Check out the [demo](http://voronianski.github.io/react-swipe/demo/) from a mobile device (real or emulated).
 
-<img src="https://dl.dropboxusercontent.com/u/100463011/react-swipe-demo.gif" width="600" />
+<img src="https://user-images.githubusercontent.com/974035/34205307-30965ccc-e582-11e7-9384-fe1ce991ff4f.gif" width="600" />
 
 ## Install
 
