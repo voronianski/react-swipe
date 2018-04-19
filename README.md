@@ -40,7 +40,55 @@ class Carousel extends React.Component {
 }
 
 ReactDOM.render(
-    <Carousel />, 
+    <Carousel />,
+    document.getElementById('app')
+);
+```
+
+### Programmatically Calling Component Methods
+```javascript
+import React from 'react'
+import ReactDOM from 'react-dom';
+import ReactSwipe from 'react-swipe';
+
+class Carousel extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {};
+
+      this.goToNext = this.goToNext.bind(this);
+      this.goToPrevious = this.goToPrevious.bind(this);
+    }
+
+    goToNext() {
+      this.reactSwipe.next();
+    }
+
+    goToPrevious() {
+      this.reactSwipe.prev();
+    }
+
+    render() {
+        return (
+            <div>
+                <ReactSwipe
+                  className="carousel"
+                  swipeOptions={{continuous: false}}
+                  ref={reactSwipe => (this.reactSwipe = reactSwipe)}>
+                    <div>PANE 1</div>
+                    <div>PANE 2</div>
+                    <div>PANE 3</div>
+                    <div>PANE 4</div>
+                </ReactSwipe>
+                <button onClick={this.goToNext}>Next</button>
+                <button onClick={this.goToPrevious}>Previous</button>    
+            </div>
+        );
+    }
+}
+
+ReactDOM.render(
+    <Carousel />,
     document.getElementById('app')
 );
 ```
@@ -53,7 +101,7 @@ ReactDOM.render(
 - `style: ?Object` - object with 3 keys (see [defaults](https://github.com/voronianski/react-swipe/blob/gh-pages/src/reactSwipe.js#L28)):
     -  `container: ?Object`
     -  `wrapper: ?Object`
-    -  `child: ?Object` 
+    -  `child: ?Object`
 - regular props as `className`, `id` for root component are also supported
 
 ## Methods
