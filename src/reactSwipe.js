@@ -92,10 +92,10 @@ class ReactSwipe extends Component {
   }
 
   render() {
-    const { id, className, style, children } = this.props;
+    const { id, className, style, children, ...rest } = this.props;
 
     return (
-      <div ref={container => this.container = container} id={id} className={`react-swipe-container ${className}`} style={style.container}>
+      <div ref={container => this.container = container} id={id} className={`react-swipe-container ${className}`} style={style.container} {...rest}>
         <div style={style.wrapper}>
           {React.Children.map(children, (child) => {
             if (!child) {
