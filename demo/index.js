@@ -32,12 +32,20 @@ const swipeOptions = {
 };
 
 class Page extends Component {
+  state = {
+    disableScroll: false,
+  }
+
   next() {
     this.reactSwipe.next();
   }
 
   prev() {
     this.reactSwipe.prev();
+  }
+
+  setDisableScroll(disableScroll){
+    this.setState({disableScroll}, () => this.reactSwipe.swipe.disableScrolling(disableScroll))
   }
 
   render() {
@@ -53,6 +61,7 @@ class Page extends Component {
 
         <div>
           <button type="button" onClick={::this.prev}>Prev</button>
+          <button type="button" onClick={() => this.setDisableScroll(!this.state.disableScroll)}>Swipe {this.state.disableScroll ? 'off':'on'}</button>
           <button type="button" onClick={::this.next}>Next</button>
         </div>
       </div>
