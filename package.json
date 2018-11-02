@@ -23,7 +23,7 @@
   "dependencies": {
     "object-assign": "^4.1.1",
     "prop-types": "^15.6.0",
-    "swipe-js-iso": "^2.0.4"
+    "swipe-js-iso": "mkondel/swipe-js-iso"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
