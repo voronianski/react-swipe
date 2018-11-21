@@ -47,7 +47,8 @@
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-plugin-add-module-exports": "^0.2.1",
-    "babel-preset-es2015": "^6.24.1",
+    "babel-plugin-transform-object-assign": "^6.22.0",
+    "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "babel-register": "^6.26.0",
@@ -68,7 +69,7 @@
     "build-babel": "babel ./src/reactSwipe.js --out-file index.js",
     "build-dist-dev": "NODE_ENV=development webpack --config webpack.config --colors",
     "build-dist-prod": "NODE_ENV=production webpack --config webpack.config --progress --colors -p",
-    "build-demo": "NODE_ENV=production browserify ./demo/index.js -t [ babelify --presets [ es2015 stage-0 react ] --plugins [ transform-object-assign ] ] | uglifyjs -cm > ./demo/bundle.min.js",
+    "build-demo": "NODE_ENV=production browserify ./demo/index.js -t [ babelify --presets [ env stage-0 react ] --plugins [ transform-object-assign ] ] | uglifyjs -cm > ./demo/bundle.min.js",
     "test": "echo \"Comming soon ;)\" && exit 0"
   }
 }
