@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Swipe from 'swipe-js-iso';
-import objectAssign from 'object-assign';
 
 class ReactSwipe extends Component {
   static propTypes = {
@@ -95,18 +94,23 @@ class ReactSwipe extends Component {
     const { id, className, style, children } = this.props;
 
     return (
-      <div ref={container => this.container = container} id={id} className={`react-swipe-container ${className}`} style={style.container}>
+      <div
+        ref={container => (this.container = container)}
+        id={id}
+        className={`react-swipe-container ${className}`}
+        style={style.container}
+      >
         <div style={style.wrapper}>
-          {React.Children.map(children, (child) => {
+          {React.Children.map(children, child => {
             if (!child) {
               return null;
             }
 
-            const childStyle = child.props.style ?
-              objectAssign({}, style.child, child.props.style) :
-              style.child;
+            const childStyle = child.props.style
+              ? { ...style.child, ...child.props.style }
+              : style.child;
 
-            return React.cloneElement(child, {style: childStyle});
+            return React.cloneElement(child, { style: childStyle });
           })}
         </div>
       </div>
