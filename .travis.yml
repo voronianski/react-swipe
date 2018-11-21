@@ -1,5 +1,4 @@
 language: node_js
 node_js:
-  - 4
-before_script:
-  - npm run lint
+  - 10
+  - 8

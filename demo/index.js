@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import querystring from 'querystring';
-import ReactSwipe from '../src/reactSwipe';
+import ReactSwipe from '../src';
 
 const query = querystring.parse(window.location.search.slice(1));
 
@@ -32,12 +32,18 @@ const swipeOptions = {
 };
 
 class Page extends Component {
+  constructor(props) {
+    super(props);
+
+    this.reactSwipeRef = React.createRef();
+  }
+
   next() {
-    this.reactSwipe.next();
+    this.reactSwipeRef.current.next();
   }
 
   prev() {
-    this.reactSwipe.prev();
+    this.reactSwipeRef.current.prev();
   }
 
   render() {
@@ -54,7 +60,7 @@ class Page extends Component {
         </h2>
 
         <ReactSwipe
-          ref={reactSwipe => (this.reactSwipe = reactSwipe)}
+          ref={this.reactSwipeRef}
           className="mySwipe"
           swipeOptions={swipeOptions}
         >
@@ -62,10 +68,10 @@ class Page extends Component {
         </ReactSwipe>
 
         <div>
-          <button type="button" onClick={::this.prev}>
+          <button type="button" onClick={() => this.prev()}>
             Prev
           </button>
-          <button type="button" onClick={::this.next}>
+          <button type="button" onClick={() => this.next()}>
             Next
           </button>
         </div>

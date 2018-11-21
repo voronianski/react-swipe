@@ -18,7 +18,7 @@
     "type": "git",
     "url": "git://github.com/voronianski/react-swipe.git"
   },
-  "main": "index.js",
+  "main": "./index.js",
   "license": "MIT",
   "engines": {
     "node": "^8.0.0",
@@ -72,8 +72,8 @@
     "husky": "^1.2.0",
     "prettier": "^1.15.2",
     "pretty-quick": "^1.8.0",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
     "uglifyjs-webpack-plugin": "^2.0.1",
     "webpack": "^4.26.0",
     "webpack-cli": "^3.1.2",
@@ -81,10 +81,10 @@
   },
   "scripts": {
     "build": "npm run build-babel && npm run build-dist-dev && npm run build-dist-prod",
-    "build-babel": "babel ./src/reactSwipe.js --out-file index.js",
+    "build-babel": "babel ./src/index.js --out-file index.js",
     "build-dist-dev": "NODE_ENV=development webpack --config webpack.config --colors",
     "build-dist-prod": "NODE_ENV=production webpack --config webpack.config --progress --colors -p",
-    "build-demo": "NODE_ENV=production browserify ./demo/index.js -t [ babelify --presets [ env stage-0 react ] --plugins [ transform-object-assign ] ] | uglifyjs -cm > ./demo/bundle.min.js",
+    "build-demo": "NODE_ENV=production browserify ./demo/index.js -t [ babelify --presets [ @babel/preset-env @babel/preset-react ] ] | uglifyjs -cm > ./demo/bundle.min.js",
     "test": "echo \"Comming soon ;)\" && exit 0"
   }
 }
