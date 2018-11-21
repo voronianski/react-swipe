@@ -29,18 +29,12 @@ import ReactDOM from 'react-dom';
 import ReactSwipe from 'react-swipe';
 
 class Carousel extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.reactSwipeRef = React.createRef();
-  }
-
   next() {
-    this.reactSwipeRef.current.next();
+    this.reactSwipeEl.next();
   }
 
   prev() {
-    this.reactSwipeRef.current.prev();
+    this.reactSwipeEl.prev();
   }
 
   render() {
@@ -48,7 +42,7 @@ class Carousel extends React.Component {
       <ReactSwipe
         className="carousel"
         swipeOptions={{ continuous: false }}
-        ref={this.reactSwipeRef}
+        ref={el => this.reactSwipeEl = el}
       >
         <div>PANE 1</div>
         <div>PANE 2</div>
