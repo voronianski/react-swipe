@@ -2,7 +2,7 @@
 
 [![build status](http://img.shields.io/travis/voronianski/react-swipe.svg?style=flat)](https://travis-ci.org/voronianski/react-swipe)
 [![npm version](http://badge.fury.io/js/react-swipe.svg)](http://badge.fury.io/js/react-swipe)
-[![Download Count](http://img.shields.io/npm/dm/react-swipe.svg?style=flat)](http://www.npmjs.com/package/react-swipe) 
+[![Download Count](http://img.shields.io/npm/dm/react-swipe.svg?style=flat)](http://www.npmjs.com/package/react-swipe)
 <a href="https://www.buymeacoffee.com/voronianski" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" height="20" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 
 > [Brad Birdsall](https://github.com/thebird)'s [Swipe.js](http://swipejs.com) as a [React](http://facebook.github.io/react) component.
@@ -13,14 +13,10 @@ Check out the [demo](http://voronianski.github.io/react-swipe/demo/) from a mobi
 
 <img src="https://user-images.githubusercontent.com/974035/34205307-30965ccc-e582-11e7-9384-fe1ce991ff4f.gif" width="600" />
 
-## Playground
-
-Configure the ReactSwipe component in a sandbox environment at [CodeSandbox](https://codesandbox.io/s/q86m8n9qnj)
-
 ## Install
 
 ```bash
-npm install react swipe-js-iso react-swipe
+npm install react swipe-js-iso react-swipe --save
 ```
 
 ## Usage
@@ -28,26 +24,23 @@ npm install react swipe-js-iso react-swipe
 ### Example
 
 ```javascript
-import React from 'react'
+import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactSwipe from 'react-swipe';
 
 class Carousel extends React.Component {
-    render() {
-        return (
-            <ReactSwipe className="carousel" swipeOptions={{continuous: false}}>
-                <div>PANE 1</div>
-                <div>PANE 2</div>
-                <div>PANE 3</div>
-            </ReactSwipe>
-        );
-    }
+  render() {
+    return (
+      <ReactSwipe className="carousel" swipeOptions={{ continuous: false }}>
+        <div>PANE 1</div>
+        <div>PANE 2</div>
+        <div>PANE 3</div>
+      </ReactSwipe>
+    );
+  }
 }
 
-ReactDOM.render(
-    <Carousel />, 
-    document.getElementById('app')
-);
+ReactDOM.render(<Carousel />, document.getElementById('app'));
 ```
 
 **Source code of [demo](http://voronianski.github.io/react-swipe/demo/) is available [here](https://github.com/voronianski/react-swipe/blob/gh-pages/demo/index.js).**
@@ -56,9 +49,9 @@ ReactDOM.render(
 
 - `swipeOptions: ?Object` - supports all original options from [Swipe.js config](https://github.com/voronianski/swipe-js-iso#config-options)
 - `style: ?Object` - object with 3 keys (see [defaults](https://github.com/voronianski/react-swipe/blob/gh-pages/src/reactSwipe.js#L28)):
-    -  `container: ?Object`
-    -  `wrapper: ?Object`
-    -  `child: ?Object` 
+  - `container: ?Object`
+  - `wrapper: ?Object`
+  - `child: ?Object`
 - regular props as `className`, `id` for root component are also supported
 
 ## Methods
@@ -72,10 +65,12 @@ See [related issue](https://github.com/jed/react-swipe/issues/23).
 In order for `react-swipe` to know that it needs to be re-rendered, you should supply the `childCount` property to the component. By setting the `childCount` to the `length` of the images that you pass into `react-swipe`, re-rendering will take place when the `images.length` differs from the previous `render` pass:
 
 ```javascript
-<ReactSwipe childCount={images.length}>
-    {images}
-</ReactSwipe>
+<ReactSwipe childCount={images.length}>{images}</ReactSwipe>
 ```
+
+### Playground
+
+Configure the ReactSwipe component in a sandbox environment at [CodeSandbox](https://codesandbox.io/s/q86m8n9qnj)
 
 ---
 
