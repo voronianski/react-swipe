@@ -56,13 +56,13 @@ ReactDOM.render(<Carousel />, document.getElementById('app'));
 
 ## Methods
 
-Component proxies all [Swipe.js instance methods](https://github.com/thebird/swipe#swipe-api).
+Component proxies all [Swipe.js instance methods](https://github.com/voronianski/swipe-js-iso/#swipe-api).
 
 ### Re-rendering
 
-See [related issue](https://github.com/jed/react-swipe/issues/23).
+In order for `react-swipe` to know that it needs to be re-rendered you should supply the `childCount` property to the component.
 
-In order for `react-swipe` to know that it needs to be re-rendered, you should supply the `childCount` property to the component. By setting the `childCount` to the `length` of the images that you pass into `react-swipe`, re-rendering will take place when the `images.length` differs from the previous `render` pass:
+By setting the `childCount` to the `length` of the images that you pass into `react-swipe` re-rendering will take place when the `images.length` differs from the previous `render` pass:
 
 ```javascript
 <ReactSwipe childCount={images.length}>{images}</ReactSwipe>
@@ -70,7 +70,7 @@ In order for `react-swipe` to know that it needs to be re-rendered, you should s
 
 ### Playground
 
-Configure the ReactSwipe component in a sandbox environment at [CodeSandbox](https://codesandbox.io/s/q86m8n9qnj)
+Configure the ReactSwipe component in a sandbox environment at [CodeSandbox](https://codesandbox.io/s/q86m8n9qnj).
 
 ---
 
