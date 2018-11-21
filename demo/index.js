@@ -32,18 +32,12 @@ const swipeOptions = {
 };
 
 class Page extends Component {
-  constructor(props) {
-    super(props);
-
-    this.reactSwipeRef = React.createRef();
-  }
-
   next() {
-    this.reactSwipeRef.current.next();
+    this.reactSwipeEl.next();
   }
 
   prev() {
-    this.reactSwipeRef.current.prev();
+    this.reactSwipeEl.prev();
   }
 
   render() {
@@ -61,7 +55,7 @@ class Page extends Component {
 
         <ReactSwipe
           className="mySwipe"
-          ref={this.reactSwipeRef}
+          ref={el => (this.reactSwipeEl = el)}
           swipeOptions={swipeOptions}
         >
           {paneNodes}

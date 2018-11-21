@@ -1156,19 +1156,16 @@ function (_Component) {
   _createClass(ReactSwipe, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      var swipeOptions = this.props.swipeOptions;
-      this.swipe = swipe_js_iso__WEBPACK_IMPORTED_MODULE_2___default()(this.container, swipeOptions);
+      this.swipe = swipe_js_iso__WEBPACK_IMPORTED_MODULE_2___default()(this.containerEl, this.props.swipeOptions);
     }
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps) {
-      var _this$props = this.props,
-          childCount = _this$props.childCount,
-          swipeOptions = _this$props.swipeOptions;
+      var childCount = this.props.childCount;
 
       if (prevProps.childCount !== childCount) {
         this.swipe.kill();
-        this.swipe = swipe_js_iso__WEBPACK_IMPORTED_MODULE_2___default()(this.container, swipeOptions);
+        this.swipe = swipe_js_iso__WEBPACK_IMPORTED_MODULE_2___default()(this.containerEl, this.props.swipeOptions);
       }
     }
   }, {
@@ -1209,16 +1206,16 @@ function (_Component) {
     value: function render() {
       var _this = this;
 
-      var _this$props2 = this.props,
-          id = _this$props2.id,
-          className = _this$props2.className,
-          style = _this$props2.style,
-          children = _this$props2.children;
+      var _this$props = this.props,
+          id = _this$props.id,
+          className = _this$props.className,
+          style = _this$props.style,
+          children = _this$props.children;
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        ref: function ref(container) {
-          return _this.container = container;
-        },
         id: id,
+        ref: function ref(el) {
+          return _this.containerEl = el;
+        },
         className: "react-swipe-container ".concat(className),
         style: style.container
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {

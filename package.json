@@ -18,7 +18,7 @@
     "type": "git",
     "url": "git://github.com/voronianski/react-swipe.git"
   },
-  "main": "./index.js",
+  "main": "./lib/index.js",
   "license": "MIT",
   "engines": {
     "node": "^8.0.0",
@@ -80,11 +80,11 @@
     "webpack-umd-external": "^1.0.2"
   },
   "scripts": {
-    "build": "npm run build-babel && npm run build-dist-dev && npm run build-dist-prod",
-    "build-babel": "babel ./src/index.js --out-file index.js",
+    "build": "npm run build-babel && npm run build-dist-dev && npm run build-dist-prod && npm run build-demo",
+    "build-babel": "babel ./src/index.js --out-file ./lib/index.js",
     "build-dist-dev": "NODE_ENV=development webpack --config webpack.config --colors",
     "build-dist-prod": "NODE_ENV=production webpack --config webpack.config --progress --colors -p",
-    "build-demo": "NODE_ENV=production browserify ./demo/index.js -t [ babelify --presets [ @babel/preset-env @babel/preset-react ] ] | uglifyjs -cm > ./demo/bundle.min.js",
+    "build-demo": "browserify ./demo/index.js -t [ babelify --presets [ @babel/preset-env @babel/preset-react ] ] -o ./demo/bundle.js",
     "test": "echo \"Comming soon ;)\" && exit 0"
   }
 }
