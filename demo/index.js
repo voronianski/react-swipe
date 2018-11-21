@@ -60,8 +60,8 @@ class Page extends Component {
         </h2>
 
         <ReactSwipe
-          ref={this.reactSwipeRef}
           className="mySwipe"
+          ref={this.reactSwipeRef}
           swipeOptions={swipeOptions}
         >
           {paneNodes}

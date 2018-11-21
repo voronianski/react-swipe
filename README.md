@@ -21,7 +21,7 @@ npm install react swipe-js-iso react-swipe --save
 
 ## Usage
 
-### Example
+### Examples
 
 ```javascript
 import React from 'react';
@@ -29,21 +29,39 @@ import ReactDOM from 'react-dom';
 import ReactSwipe from 'react-swipe';
 
 class Carousel extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.reactSwipeRef = React.createRef();
+  }
+
+  next() {
+    this.reactSwipeRef.current.next();
+  }
+
+  prev() {
+    this.reactSwipeRef.current.prev();
+  }
+
   render() {
     return (
-      <ReactSwipe className="carousel" swipeOptions={{ continuous: false }}>
+      <ReactSwipe
+        className="carousel"
+        swipeOptions={{ continuous: false }}
+        ref={this.reactSwipeRef}
+      >
         <div>PANE 1</div>
         <div>PANE 2</div>
         <div>PANE 3</div>
       </ReactSwipe>
+      <button onClick={() => this.next()}>Next</button>
+      <button onClick={() => this.prev()}>Previous</button>
     );
   }
 }
 
 ReactDOM.render(<Carousel />, document.getElementById('app'));
 ```
-
-**Source code of [demo](http://voronianski.github.io/react-swipe/demo/) is available [here](https://github.com/voronianski/react-swipe/blob/gh-pages/demo/index.js).**
 
 ### Props
 
