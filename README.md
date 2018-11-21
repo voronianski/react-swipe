@@ -65,10 +65,10 @@ Component proxies all [Swipe.js instance methods](https://github.com/thebird/swi
 
 See [related issue](https://github.com/jed/react-swipe/issues/23).
 
-In order for `react-swipe` to know that it needs to be re-rendered, you should supply the `key` property to the component. By setting the `key` to the `length` of the images that you pass into `react-swipe`, re-rendering will take place when the `images.length` differs from the previous `render` pass:
+In order for `react-swipe` to know that it needs to be re-rendered, you should supply the `childCount` property to the component. By setting the `childCount` to the `length` of the images that you pass into `react-swipe`, re-rendering will take place when the `images.length` differs from the previous `render` pass:
 
 ```javascript
-<ReactSwipe key={images.length}>
+<ReactSwipe childCount={images.length}>
     {images}
 </ReactSwipe>
 ```
