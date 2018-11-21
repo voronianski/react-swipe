@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import querystring from 'querystring';
-import ReactSwipe from '../src/reactSwipe';
+import ReactSwipe from '../src';
 
 const query = querystring.parse(window.location.search.slice(1));
 
@@ -32,16 +32,18 @@ const swipeOptions = {
 };
 
 class Page extends Component {
-  state = {
-    disableScroll: false,
+  constructor(props) {
+    super(props);
+
+    this.reactSwipeRef = React.createRef();
   }
 
   next() {
-    this.reactSwipe.next();
+    this.reactSwipeRef.current.next();
   }
 
   prev() {
-    this.reactSwipe.prev();
+    this.reactSwipeRef.current.prev();
   }
 
   setDisableScroll(disableScroll){
@@ -53,23 +55,33 @@ class Page extends Component {
       <div className="center">
         <h1>ReactSwipe.js</h1>
         <h2>Open this page from a mobile device (real or emulated).</h2>
-        <h2>You can pass <a href="https://github.com/voronianski/swipe-js-iso#config-options">Swipe.js options</a> as query params.</h2>
+        <h2>
+          You can pass{' '}
+          <a href="https://github.com/voronianski/swipe-js-iso#config-options">
+            Swipe.js options
+          </a>{' '}
+          as query params.
+        </h2>
 
-        <ReactSwipe ref={reactSwipe => this.reactSwipe = reactSwipe} className="mySwipe" swipeOptions={swipeOptions}>
-            {paneNodes}
+        <ReactSwipe
+          className="mySwipe"
+          ref={this.reactSwipeRef}
+          swipeOptions={swipeOptions}
+        >
+          {paneNodes}
         </ReactSwipe>
 
         <div>
-          <button type="button" onClick={::this.prev}>Prev</button>
-          <button type="button" onClick={() => this.setDisableScroll(!this.state.disableScroll)}>Swipe {this.state.disableScroll ? 'off':'on'}</button>
-          <button type="button" onClick={::this.next}>Next</button>
+          <button type="button" onClick={() => this.prev()}>
+            Prev
+          </button>
+          <button type="button" onClick={() => this.next()}>
+            Next
+          </button>
         </div>
       </div>
     );
   }
 }
 
-ReactDOM.render(
-  <Page />,
-  document.getElementById('app')
-);
+ReactDOM.render(<Page />, document.getElementById('app'));

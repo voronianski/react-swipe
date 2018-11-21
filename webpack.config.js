@@ -1,38 +1,43 @@
-'use strict';
-
-const env = process.env.NODE_ENV || 'development';
-
 const webpack = require('webpack');
 const path = require('path');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const webpackUMDExternal = require('webpack-umd-external');
 
-const pluginsList = [];
-const outputFileName = env === 'production' ?
-  'react-swipe.min.js' :
-  'react-swipe.js';
-
-if (env === 'production') {
-  pluginsList.push(
-    new webpack.optimize.UglifyJsPlugin({
-      compress: { warnings: false },
-      output: { comments: false }
-    })
-  );
-}
+const env = process.env.NODE_ENV || 'development';
+const isProduction = env === 'production';
+const outputFileName = isProduction ? 'react-swipe.min.js' : 'react-swipe.js';
 
 const config = {
-  entry: path.join(__dirname, 'src/reactSwipe.js'),
+  mode: isProduction ? 'production' : 'development',
+
+  devtool: false,
+
+  target: 'web',
+
+  entry: './src/index.js',
 
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, './dist'),
     filename: outputFileName,
     library: 'ReactSwipe',
     libraryTarget: 'umd',
     umdNamedDefine: true
   },
 
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        parallel: true,
+        uglifyOptions: {
+          compress: { warnings: false },
+          output: { comments: false }
+        }
+      })
+    ]
+  },
+
   externals: webpackUMDExternal({
-    'react': 'React',
+    react: 'React',
     'swipe-js-iso': 'Swipe'
   }),
 
@@ -40,19 +45,22 @@ const config = {
     extensions: ['.js', '.jsx']
   },
 
-  plugins: pluginsList,
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify(env)
+      }
+    })
+  ],
 
   module: {
-    rules: [{
-      enforce: 'pre',
-      test: /\.jsx?$/,
-      loader: 'eslint-loader',
-      exclude: /node_modules/
-    }, {
-      test: /\.jsx?$/,
-      exclude: /node_modules/,
-      loader: 'babel-loader'
-    }]
+    rules: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader'
+      }
+    ]
   }
 };
 
