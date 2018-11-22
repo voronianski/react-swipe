@@ -53,9 +53,9 @@ ReactDOM.render(<Carousel />, document.getElementById('app'));
 
 ### Props
 
-- `swipeOptions: ?Object` - supports all original options from [Swipe.js config](https://github.com/voronianski/swipe-js-iso#config-options). If passed object differs from the previous one, `react-swipe` will re-initiate underlying Swipe.js instance with fresh options
+- `swipeOptions: ?Object` - supports all original options from [Swipe.js config](https://github.com/voronianski/swipe-js-iso#config-options). If passed object differs from the previous one `react-swipe` will re-initiate underlying Swipe.js instance with fresh options
 
-- `style: ?Object` - object with 3 keys (see [defaults](https://github.com/voronianski/react-swipe/blob/gh-pages/src/reactSwipe.js#L28)):
+- `style: ?Object` - object with 3 keys (see [defaults](https://github.com/voronianski/react-swipe/blob/gh-pages/src/index.js#L28)):
 
   - `container: ?Object`
   - `wrapper: ?Object`
@@ -63,7 +63,7 @@ ReactDOM.render(<Carousel />, document.getElementById('app'));
 
 - regular props as `className`, `id` for root component are also supported
 
-- `childCount: ?Number` - use it to explicitely tell `react-swipe` that it needs to be re-initiate underlying Swipe.js instance. For example, by setting the `childCount` prop to the `length` of the images array that you pass into `react-swipe`, re-rendering will take place when the `images.length` differs from the previous `render` pass:
+- `childCount: ?Number` - use it to explicitely tell `react-swipe` that it needs to re-initiate underlying Swipe.js instance. For example, by setting the `childCount` prop to the `length` of the images array that you pass into `react-swipe`, re-rendering will take place when the `images.length` differs from the previous `render` pass:
 
 ```js
 <ReactSwipe childCount={images.length}>{images}</ReactSwipe>
