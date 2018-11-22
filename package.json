@@ -86,6 +86,7 @@
     "build-dist-dev": "NODE_ENV=development webpack --config webpack.config --colors",
     "build-dist-prod": "NODE_ENV=production webpack --config webpack.config --progress --colors -p",
     "build-demo": "browserify ./demo/index.js -t [ babelify --presets [ @babel/preset-env @babel/preset-react ] ] -o ./demo/bundle.js",
-    "test": "echo \"Comming soon ;)\" && exit 0"
+    "test": "echo \"Comming soon ;)\" && exit 0",
+    "prepublishOnly": "npm run build"
   }
 }
