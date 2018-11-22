@@ -5,7 +5,7 @@
 [![Download Count](http://img.shields.io/npm/dm/react-swipe.svg?style=flat)](http://www.npmjs.com/package/react-swipe)
 <a href="https://www.buymeacoffee.com/voronianski" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" height="20" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 
-> [Brad Birdsall](https://github.com/thebird)'s [Swipe.js](http://swipejs.com) as a [React](http://facebook.github.io/react) component.
+> [Brad Birdsall](https://github.com/thebird)'s [Swipe.js](https://github.com/voronianski/swipe-js-iso) as a [React](http://facebook.github.io/react) component.
 
 ## Demo
 
