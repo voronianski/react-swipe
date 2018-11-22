@@ -31,47 +31,32 @@ const swipeOptions = {
   }
 };
 
-class Page extends Component {
-  next() {
-    this.reactSwipeEl.next();
-  }
+const Page = () => {
+  let reactSwipeEl;
 
-  prev() {
-    this.reactSwipeEl.prev();
-  }
+  return (
+    <div className="center">
+      <h1>ReactSwipe.js</h1>
+      <h2>Open this page from a mobile device (real or emulated).</h2>
+      <h2>
+        You can pass{' '}
+        <a href="https://github.com/voronianski/swipe-js-iso#config-options">
+          Swipe.js options
+        </a>{' '}
+        as query params.
+      </h2>
 
-  render() {
-    return (
-      <div className="center">
-        <h1>ReactSwipe.js</h1>
-        <h2>Open this page from a mobile device (real or emulated).</h2>
-        <h2>
-          You can pass{' '}
-          <a href="https://github.com/voronianski/swipe-js-iso#config-options">
-            Swipe.js options
-          </a>{' '}
-          as query params.
-        </h2>
-
-        <ReactSwipe
-          className="mySwipe"
-          ref={el => (this.reactSwipeEl = el)}
-          swipeOptions={swipeOptions}
-        >
-          {paneNodes}
-        </ReactSwipe>
-
-        <div>
-          <button type="button" onClick={() => this.prev()}>
-            Prev
-          </button>
-          <button type="button" onClick={() => this.next()}>
-            Next
-          </button>
-        </div>
-      </div>
-    );
-  }
-}
+      <ReactSwipe
+        className="mySwipe"
+        swipeOptions={swipeOptions}
+        ref={el => (reactSwipeEl = el)}
+      >
+        {paneNodes}
+      </ReactSwipe>
+      <button onClick={() => reactSwipeEl.prev()}>Prev</button>
+      <button onClick={() => reactSwipeEl.next()}>Next</button>
+    </div>
+  );
+};
 
 ReactDOM.render(<Page />, document.getElementById('app'));

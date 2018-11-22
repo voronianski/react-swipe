@@ -28,57 +28,50 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactSwipe from 'react-swipe';
 
-class Carousel extends React.Component {
-  next() {
-    this.reactSwipeEl.next();
-  }
+const Carousel = () => {
+  let reactSwipeEl;
 
-  prev() {
-    this.reactSwipeEl.prev();
-  }
-
-  render() {
-    return (
+  return (
+    <div>
       <ReactSwipe
         className="carousel"
         swipeOptions={{ continuous: false }}
-        ref={el => this.reactSwipeEl = el}
+        ref={el => (reactSwipeEl = el)}
       >
         <div>PANE 1</div>
         <div>PANE 2</div>
         <div>PANE 3</div>
       </ReactSwipe>
-      <button onClick={() => this.next()}>Next</button>
-      <button onClick={() => this.prev()}>Previous</button>
-    );
-  }
-}
+      <button onClick={() => reactSwipeEl.next()}>Next</button>
+      <button onClick={() => reactSwipeEl.prev()}>Previous</button>
+    </div>
+  );
+};
 
 ReactDOM.render(<Carousel />, document.getElementById('app'));
 ```
 
 ### Props
 
-- `swipeOptions: ?Object` - supports all original options from [Swipe.js config](https://github.com/voronianski/swipe-js-iso#config-options)
+- `swipeOptions: ?Object` - supports all original options from [Swipe.js config](https://github.com/voronianski/swipe-js-iso#config-options). If passed object differs from the previous one, `react-swipe` will re-initiate underlying Swipe.js instance with fresh options
+
 - `style: ?Object` - object with 3 keys (see [defaults](https://github.com/voronianski/react-swipe/blob/gh-pages/src/reactSwipe.js#L28)):
+
   - `container: ?Object`
   - `wrapper: ?Object`
   - `child: ?Object`
+
 - regular props as `className`, `id` for root component are also supported
+
+- `childCount: ?Number` - use it to explicitely tell `react-swipe` that it needs to be re-initiate underlying Swipe.js instance. For example, by setting the `childCount` prop to the `length` of the images array that you pass into `react-swipe`, re-rendering will take place when the `images.length` differs from the previous `render` pass:
+
+```js
+<ReactSwipe childCount={images.length}>{images}</ReactSwipe>
+```
 
 ## Methods
 
 Component proxies all [Swipe.js instance methods](https://github.com/voronianski/swipe-js-iso/#swipe-api).
-
-### Re-rendering
-
-In order for `react-swipe` to know that it needs to be re-rendered you should supply the `childCount` property to the component.
-
-By setting the `childCount` to the `length` of the images that you pass into `react-swipe` re-rendering will take place when the `images.length` differs from the previous `render` pass:
-
-```javascript
-<ReactSwipe childCount={images.length}>{images}</ReactSwipe>
-```
 
 ### Playground
 
