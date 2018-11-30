@@ -1,6 +1,6 @@
 {
   "name": "react-swipe",
-  "version": "4.3.0",
+  "version": "4.3.1",
   "description": "Brad Birdsall's Swipe.js, as a React component",
   "homepage": "https://github.com/localnerve/react-swipe",
   "keywords": [
@@ -11,10 +11,12 @@
     "react-component"
   ],
   "author": "Jed Schmidt <where@jed.is>",
-  "contributors": [{
-    "name": "Alex Grant",
-    "email": "alex@localnerve.com"
-  }],
+  "contributors": [
+    {
+      "name": "Alex Grant",
+      "email": "alex@localnerve.com"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/localnerve/react-swipe.git"
@@ -32,7 +34,7 @@
     "react-dom": "^15.5.4 || ^16.0.0",
     "prop-types": "^15.6.0",
     "create-react-class": "^15.6.2",
-    "swipe-js-iso-ln": "git://github.com/localnerve/swipe-js-iso-ln"
+    "swipe-js-iso-ln": "github:localnerve/swipe-js-iso-ln"
   },
   "devDependencies": {
     "uglify-js": "^2.4.19",
