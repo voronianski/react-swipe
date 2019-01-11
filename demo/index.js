@@ -23,6 +23,8 @@ const swipeOptions = {
   speed: parseInt(query.speed, 10) || 300,
   disableScroll: query.disableScroll === 'true',
   continuous: query.continuous === 'true',
+  widthOfSiblingSlidePreview:
+    parseInt(query.widthOfSiblingSlidePreview, 10) || 0,
   callback() {
     console.log('slide changed');
   },

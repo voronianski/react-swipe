@@ -32,6 +32,7 @@ var swipeOptions = {
   speed: parseInt(query.speed, 10) || 300,
   disableScroll: query.disableScroll === 'true',
   continuous: query.continuous === 'true',
+  widthOfSiblingSlidePreview: parseInt(query.widthOfSiblingSlidePreview, 10) || 0,
   callback: function callback() {
     console.log('slide changed');
   },
@@ -26429,6 +26430,8 @@ if (process.env.NODE_ENV === 'production') {
     options = options || {};
     var index = parseInt(options.startSlide, 10) || 0;
     var speed = options.speed || 300;
+    var widthOfSiblingSlidePreview =
+      parseInt(options.widthOfSiblingSlidePreview, 10) || 0;
     var continuous = (options.continuous =
       options.continuous !== undefined ? options.continuous : true);
 
@@ -26444,9 +26447,11 @@ if (process.env.NODE_ENV === 'production') {
       slidePos = new Array(slides.length);
 
       // determine width of each slide
-      width = Math.round(
-        container.getBoundingClientRect().width || container.offsetWidth
-      );
+      width =
+        Math.round(
+          container.getBoundingClientRect().width || container.offsetWidth
+        ) -
+        widthOfSiblingSlidePreview * 2;
 
       element.style.width = slides.length * width + 'px';
 
@@ -26459,7 +26464,7 @@ if (process.env.NODE_ENV === 'production') {
         slide.setAttribute('data-index', pos);
 
         if (browser.transitions) {
-          slide.style.left = pos * -width + 'px';
+          slide.style.left = pos * -width + widthOfSiblingSlidePreview + 'px';
           move(pos, index > pos ? -width : index < pos ? width : 0, 0);
         }
       }
@@ -26470,7 +26475,8 @@ if (process.env.NODE_ENV === 'production') {
         move(circle(index + 1), width, 0);
       }
 
-      if (!browser.transitions) element.style.left = index * -width + 'px';
+      if (!browser.transitions)
+        element.style.left = index * -width + widthOfSiblingSlidePreview + 'px';
 
       container.style.visibility = 'visible';
     }
