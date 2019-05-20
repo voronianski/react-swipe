@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Swipe from 'swipe-js-iso';
-import isEqual from 'lodash.isequal';
+import isEqual from 'fast-deep-equal';
 
 class ReactSwipe extends Component {
   static propTypes = {
