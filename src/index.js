@@ -50,7 +50,7 @@ class ReactSwipe extends Component {
   };
 
   componentDidMount() {
-    this.swipe = Swipe(this.containerEl, this.props.swipeOptions);
+    this.swipe = Swipe(this.containerEl.current, this.props.swipeOptions);
   }
 
   componentDidUpdate(prevProps) {
@@ -61,7 +61,7 @@ class ReactSwipe extends Component {
 
     if (shouldUpdateSwipeInstance) {
       this.swipe.kill();
-      this.swipe = Swipe(this.containerEl, this.props.swipeOptions);
+      this.swipe = Swipe(this.containerEl.current, this.props.swipeOptions);
     }
   }
 
@@ -90,13 +90,15 @@ class ReactSwipe extends Component {
     return this.swipe.getNumSlides();
   }
 
+  containerEl = React.createRef();
+
   render() {
     const { id, className, style, children } = this.props;
 
     return (
       <div
         id={id}
-        ref={el => (this.containerEl = el)}
+        ref={this.containerEl}
         className={`react-swipe-container ${className}`}
         style={style.container}
       >
