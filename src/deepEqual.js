@@ -20,7 +20,9 @@ export default function deepEqual(a, b) {
   }
 
   for (let key of keysA) {
-    if (!keysB.includes(key) || !deepEqual(a[key], b[key])) return false;
+    if (!keysB.includes(key) || !deepEqual(a[key], b[key])) {
+      return false;
+    }
   }
 
   return true;
