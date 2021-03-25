@@ -18,8 +18,7 @@
       root.objectAssign
     );
   }
-})(this,
-function (React, ReactDOM, PropTypes, createReactClass, Swipe, objectAssign) {
+}(this, function (React, ReactDOM, PropTypes, createReactClass, Swipe, objectAssign) {
   var styles = {
     container: {
       overflow: 'hidden',
@@ -54,6 +53,7 @@ function (React, ReactDOM, PropTypes, createReactClass, Swipe, objectAssign) {
       children        : PropTypes.array
     },
 
+    /* eslint react/no-string-refs: 0 */
     componentDidMount: function () {
       for (var i = 0; i < this.props.children.length; i++) {
         this.refs[i].style.display = 'block';
@@ -64,6 +64,7 @@ function (React, ReactDOM, PropTypes, createReactClass, Swipe, objectAssign) {
 
       this.swipe = Swipe(this.refs.container, propsClone);
     },
+    /* eslint react/no-string-refs: 1 */
 
     componentDidUpdate: function () {
       if (this.props.slideToIndex || this.props.slideToIndex === 0) {
@@ -108,4 +109,4 @@ function (React, ReactDOM, PropTypes, createReactClass, Swipe, objectAssign) {
   });
 
   return ReactSwipe;
-});
+}));

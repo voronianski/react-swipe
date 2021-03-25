@@ -1,6 +1,6 @@
 {
   "name": "react-swipe",
-  "version": "4.3.1",
+  "version": "4.3.2",
   "description": "Brad Birdsall's Swipe.js, as a React component",
   "homepage": "https://github.com/localnerve/react-swipe",
   "keywords": [
@@ -11,6 +11,7 @@
     "react-component"
   ],
   "author": "Jed Schmidt <where@jed.is>",
+  "private": true,
   "contributors": [
     {
       "name": "Alex Grant",
@@ -23,22 +24,22 @@
   },
   "main": "react-swipe.js",
   "scripts": {
-    "build": "uglifyjs react-swipe.js -cm -o react-swipe.min.js",
+    "build": "echo 'Not building this: uglifyjs react-swipe.js -cm -o react-swipe.min.js'",
     "prepublish": "npm run build",
     "test": "eslint ."
   },
   "license": "MIT",
   "dependencies": {
-    "object-assign": "^4.0.1",
-    "react": "^15.5.4 || ^16.0.0",
-    "react-dom": "^15.5.4 || ^16.0.0",
-    "prop-types": "^15.6.0",
-    "create-react-class": "^15.6.2",
+    "object-assign": "^4.1.1",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "prop-types": "^15.7.2",
+    "create-react-class": "^15.7.0",
     "swipe-js-iso-ln": "github:localnerve/swipe-js-iso-ln"
   },
   "devDependencies": {
-    "uglify-js": "^2.4.19",
-    "eslint": "^2.13.1",
-    "eslint-plugin-react": "5.2.2"
+    "uglify-js": "^3.13.2",
+    "eslint": "^7.22.0",
+    "eslint-plugin-react": "^7.23.1"
   }
 }
