@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Swipe from 'swipe-js-iso';
-import isEqual from 'lodash.isequal';
+import deepEqual from './deepEqual';
 
 class ReactSwipe extends Component {
   static propTypes = {
@@ -57,7 +57,7 @@ class ReactSwipe extends Component {
     const { childCount, swipeOptions } = this.props;
     const shouldUpdateSwipeInstance =
       prevProps.childCount !== childCount ||
-      !isEqual(prevProps.swipeOptions, swipeOptions);
+      !deepEqual(prevProps.swipeOptions, swipeOptions);
 
     if (shouldUpdateSwipeInstance) {
       this.swipe.kill();
